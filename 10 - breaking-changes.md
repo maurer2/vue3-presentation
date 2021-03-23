@@ -34,13 +34,15 @@ export default {
       const valueClean = value.trim()
       const words = valueClean.split(/\s+/);
 
-      const wordsReversed = words.filter((word) => word.split('').reverse().join(''))
-      const wordsReversedCapitalized = wordsReversed.filter((word) => {
-        const firstLetter = word.characterAt(0)
+      const wordsReversed = words.map((word) => word.split('').reverse().join(''))
+      const wordsReversedCapitalized = wordsReversed.map((word) => {
+        const firstLetter = word.charAt(0).toUpperCase()
         const remainingLetters = word.slice(1)
         const newWord = `${firstLetter}${remainingLetters}`
+
+        return newWord
       })
-      const wordsCapitalized = wordsReversedCapitalized.filter((word) => word.split('').reverse().join(''))
+      const wordsCapitalized = wordsReversedCapitalized.map((word) => word.split('').reverse().join(''))
 
       const transformedValue = wordsCapitalized.join(' ')
 
