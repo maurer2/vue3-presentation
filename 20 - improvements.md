@@ -18,14 +18,12 @@
 
 ```ts
 export default {
-  data () {
-    props: {
-      text: String,
-    },
-    emits: [
-      'update-text',
-    ]
+  props: {
+    text: String,
   },
+  emits: [
+    'update-text',
+  ],
   computed: {
     textValue: {
       set(newValue) {
@@ -36,6 +34,47 @@ export default {
         return this.text
       },
     },
+  }
+}
+```
+
+
+
+## Teleport element
+- new tag to break out of the current component hierarchy
+- appends "teleported" content to the body tag
+- avoids stacking context issues (z-index) and containing block issues (fixed positioning)
+- "teleported" element still acts like a regular child element e.g. receives props, emits events etc.
+- mainly useful for overlays, toast messages et.c
+
+```html
+  <div>
+    <button @click="openOverlay">
+      Show overlay
+    </button>
+    <teleport to="body" v-if="modalIsVisible">
+      Teleport content
+        <button @click="closeOverlay">
+          Close overlay
+        </button>
+    </teleport>
+  </div>
+```
+
+```ts
+export default {
+  data() {
+    return {
+      modalIsVisible: false
+    }
+  }
+  methods: {
+    closeOverlay(): void {
+      this.modalIsVisible = false
+    },
+    openOverlay(): void {
+      this.modalIsVisible = true
+    }
   }
 }
 ```
