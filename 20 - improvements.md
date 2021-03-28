@@ -39,13 +39,13 @@ export default {
 ```
 
 
-
 ## Teleport element
 - new tag to break out of the current component hierarchy
 - appends "teleported" content to the body tag
-- avoids stacking context issues (z-index) and containing block issues (fixed positioning)
-- "teleported" element still acts like a regular child element e.g. receives props, emits events etc.
-- mainly useful for overlays, toast messages et.c
+- avoids coming stacking context issues (z-index) and containing block issues (fixed positioning within elements that have a transform applied)
+- "teleported" element still acts like a regular child element e.g. can receive props, emits events etc.
+- mainly useful for overlays, toast messages etc.
+- multiple teleports to the same target will be appended in the order they are called
 
 ```html
   <div>
@@ -77,4 +77,26 @@ export default {
     }
   }
 }
+```
+
+## Template Fragments / Multiple template roots
+- Vue2 permits templates to only have one root element
+- can cause issues when a wrapper element around child elements causes invalid html (table-structure, dl-elements) or a flat html structure is needed for css (flexbox, grid)
+- in Vue2 one had to use a render function to work around this
+- Vue3 allows multiple root elements
+- has implications for attribute inheritance, key placement and class attributes
+
+### Parent template
+```html
+  <table>
+    <tr>
+      <child/>
+    </tr>
+  </table>
+```
+
+### Child template
+```html
+  <td>Column</td>
+  <td>Column</td>
 ```
