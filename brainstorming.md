@@ -1,7 +1,7 @@
 # Brainstorming
 Presentation on Vue3
 
-## Why do we beed a new version
+## Why do we need a new version
 * Better Typescript Support (Props, less execution context magic)
 * More functional, less OOP
 * Better JSX/TSX support
@@ -15,6 +15,8 @@ Presentation on Vue3
 * Template element handling
 * Updated and renamed life cycle hooks
 * Browser support
+* class and style attribute inheritance
+* event naming convention
 
 ## Improvements (templates)
 * Multiple roots/ Fragments
