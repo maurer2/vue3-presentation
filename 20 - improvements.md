@@ -2,18 +2,29 @@
 
 ## Emits-property
 - new field on the vue prototype
+- can be used to add validators to emitted events
+- can be array (for basic functionality) or object (for validator functionality)
 - similar to props declaration but for events
 - makes it easier to see at a glance which events are emitted
 - eslint warns about event that are used in the component but are missing in the emits array
 
+### Parent template
 ```html
-  <!-- Parent -->
   <form>
-    <child :text="text" @update-text="updateText" />
+    <child-component
+      :text="text"
+      @update-text="updateText"
+      @toggle-button="toggleButton"
+    />
   </form>
+```
 
-  <!-- Child -->
-  <input v-model="textValue" id="input" name="input" />
+### Child template
+```html
+  <fieldset>
+    <input v-model="textValue" id="input" name="input" />
+    <input type="button" @click="handleButtonClick" />
+  </fieldset>
 ```
 
 ```ts
@@ -21,18 +32,39 @@ export default {
   props: {
     text: String,
   },
+  // Array syntax - no validation
   emits: [
     'update-text',
+    'toggle-button':
   ],
+  // Object syntax - with optional validation
+  emits: {
+    'update-text': ({ newValue }) => {
+      const nonLatinCharacters: RegExp = /[^\x00-\x7F]+/
+
+      if (nonLatinCharacters.test(newValue)) {
+        console.log('text contains invalid characters')
+
+        return false
+      }
+
+      return true
+    }
+    'toggle-button': null, // disable validation
+  },
   computed: {
     textValue: {
       set(newValue) {
         this.$emit('update-text', newValue)
       },
-
       get() {
         return this.text
       },
+    },
+  },
+  methods: {
+    handleButtonClick(): void {
+      this.$emit('toggle-button')
     },
   }
 }
@@ -90,7 +122,7 @@ export default {
 ```html
   <table>
     <tr>
-      <child/>
+      <child-component/>
     </tr>
   </table>
 ```
