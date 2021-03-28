@@ -120,3 +120,20 @@ export default {
   }
 }
 ```
+
+## Template tag changes
+- mostly used to group sections in templates in logic units
+- not rendered in the frontend
+- often used with v-if and v-else for conditional rendering
+- Vue3 renders template tags without directives as regular html template tags
+
+### Example
+
+```html
+<div>
+  <ul v-if="list.length">
+    ...
+  </ul>
+  <span v-else>No entries found</span>
+</div>
+```
