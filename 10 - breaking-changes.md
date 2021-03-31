@@ -137,3 +137,38 @@ export default {
   <span v-else>No entries found</span>
 </div>
 ```
+
+## v-if & v-for precedence
+- using both directives at the same time on the same element should be avoided and will result in a linter warning
+- Vue2 executes v-for first and creates a temporary object which is then used by v-if to check if the condition is fulfilled. Loop has to be run and condition executed whenever the component rerenders
+- Vue3 executes v-if first and doesn't render anything as there is no age variable in scope
+- can be refactored into a computed property that pre-filters and caches the elements
+- for conditional rendering (if empty) an additional computed property like hasEntries or wrapping the container with an entries.length check can be used
+
+```html
+<dl v-for="person in people" v-if="age > 5" :key="person.name">
+  <dd>Name: </dd>
+  <dt>{{ person.name }}</dt>
+  <dd>Age: </dd>
+  <dt>{{ person.age }}</dt>
+</dl>
+```
+
+```ts
+export default {
+  data () {
+    return {
+      people: [
+        {
+          name: 'Winston Purrchill'
+          age:  10
+        },
+        {
+          name: 'Cat Stevens'
+          age:  5
+        },
+      ],
+    }
+  },
+}
+```
