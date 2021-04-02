@@ -7,7 +7,7 @@ Presentation on Vue3
 * Better JSX/TSX support
 
 ## Breaking Changes
-* .sync/v-sync-modifier removal
+* .sync-modifier removal
 * v-if & v-for order reversal
 * Filter removal
 * Placement of key property

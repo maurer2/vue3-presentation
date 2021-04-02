@@ -177,3 +177,38 @@ export default {
 - Vue3 drops support for IE11 and older browsers
 - backwards compatible build for IE11 was planned but was eventually dropped
 
+## .sync modifier removal
+- Vue2.3 added sync-attribute to allow two way binding for attributes between child and parent
+- has been dropped in Vue3
+- can be replaced with computed setters (see emits-property example) or new extended v-model (see toDo)
+
+## placement of key property
+- Vue2 prohibits the placement of keys on a template element
+- if v-for is used on a template element then keys should be added individually to the direct children inside the loop
+- if v-for is used on a non-template element then a key should be added on the element that has the the v-for attribute
+- Vue3 permits the placement of keys on a template elements and needs to have the key on the element that has the the v-for attribute regardless of type
+
+
+### Example for proper usage of v-for in Vue2 and Vue3 for non-template tags
+```html
+<dl v-for="person in people" :key="person.name">
+  <dd>Name: </dd>
+  <dt>{{ person.name }}</dt>
+</dl>
+```
+
+### Example for proper usage of v-for in Vue2 for template tags
+```html
+<template v-for="(person, index) in people">
+  <div :key="index">Name: </div>
+  <div :key="person.name">{{ person.name }}</div>
+</template>
+```
+
+### Example for proper usage of v-for in Vue2 for template tags
+```html
+<template v-for="(person, index) in people" :key="person.name">
+  <div>Name: </div>
+  <div>{{ person.name }}</div>
+</template>
+```
