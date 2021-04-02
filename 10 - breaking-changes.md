@@ -141,9 +141,9 @@ export default {
 ## v-if & v-for precedence
 - using both directives at the same time on the same element should be avoided and will result in a linter warning
 - Vue2 executes v-for first and creates a temporary object which is then used by v-if to check if the condition is fulfilled. Loop has to be run and condition executed whenever the component rerenders
-- Vue3 executes v-if first and doesn't render anything as there is no age variable in scope
+- Vue3 executes v-if first and doesn't render anything as there is no age variable in scope, which causes a warning
 - can be refactored into a computed property that pre-filters and caches the elements
-- for conditional rendering (if empty) an additional computed property like hasEntries or wrapping the container with an entries.length check can be used
+- for conditional rendering (if empty) an additional computed property like hasEntries or wrapping the container with an entries.length check can be used. Alternatively v-if and v-else can be moved into the loop using two template-tags
 
 ```html
 <dl v-for="person in people" v-if="age > 5" :key="person.name">
@@ -172,3 +172,8 @@ export default {
   },
 }
 ```
+
+## Browser support
+- Vue3 drops support for IE11 and older browsers
+- backwards compatible build for IE11 was planned but was eventually dropped
+

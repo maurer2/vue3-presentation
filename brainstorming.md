@@ -14,7 +14,7 @@ Presentation on Vue3
 * .native modifier has been removed
 * Template element handling
 * Updated and renamed life cycle hooks
-* Browser support
+* Browser support (planned IE11 support dropped)
 * class and style attribute inheritance
 * event naming convention
 
