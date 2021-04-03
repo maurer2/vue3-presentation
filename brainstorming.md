@@ -11,7 +11,7 @@ Presentation on Vue3
 * v-if & v-for order reversal
 * Filter removal
 * Placement of key property
-* .native modifier has been removed
+* .native modifier removal
 * Template element handling
 * Updated and renamed life cycle hooks
 * Browser support (planned IE11 support dropped)

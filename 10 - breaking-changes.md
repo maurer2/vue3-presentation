@@ -198,6 +198,7 @@ export default {
 ```
 
 ### Example for proper usage of v-for in Vue2 for template tags
+
 ```html
 <template v-for="(person, index) in people">
   <div :key="index">Name: </div>
@@ -206,9 +207,29 @@ export default {
 ```
 
 ### Example for proper usage of v-for in Vue2 for template tags
+
 ```html
 <template v-for="(person, index) in people" :key="person.name">
   <div>Name: </div>
   <div>{{ person.name }}</div>
 </template>
+```
+
+### Removal of .native modifier
+- in Vue2 .native is used on a parent element to listen to native/non-custom events
+- custom events are emitted via `emit` while native events are triggered via the normal browser events
+- without a .native modifier being present a parent element can't listen to native events that are propagated from the child
+- in Vue3 all events that are not listed in the `emits`-field are treated as native events and can be listened to without the need for a .native modifier
+- by adding native events to the `emits`-field they can be augmented with custom parameters etc.
+
+### Example Vue2
+
+```html
+<div>
+  <child-component
+    @custom-event="handleCustomEvent"
+    @click.prevent="handleClickEvent" // listens for click event
+    @click="handleClickEvent" // listens for emitted events e.g. this.$emit('click', newValue)
+  />
+</div>
 ```
