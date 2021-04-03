@@ -215,7 +215,7 @@ export default {
 </template>
 ```
 
-### Removal of .native modifier
+## Removal of .native modifier
 - in Vue2 .native is used on a parent element to listen to native/non-custom events
 - custom events are emitted via `emit` while native events are triggered via the normal browser events
 - without a .native modifier being present a parent element can't listen to native events that are propagated from the child
@@ -232,4 +232,33 @@ export default {
     @click="handleClickEvent" // listens for emitted events e.g. this.$emit('click', newValue)
   />
 </div>
+```
+
+## New event-naming conventions
+- Vue2 recommends kebab-case for event naming
+- Vue3 allows kebab-cas and camelCase and favours camelCase
+
+### Example
+
+```html
+<div>
+  <child-component
+    @update-text="handleTextUpdate"
+    @updateText="handleTextUpdate"
+  />
+</div>
+```
+
+```ts
+export default {
+   emits: [
+    'updateTextValue',
+  ],
+  methods: {
+    emitEvent(): void {
+        this.$emit('update-text') // recommended for Vue2
+        this.$emit('updateText') // recommended for Vue3
+    },
+  }
+}
 ```

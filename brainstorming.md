@@ -13,7 +13,6 @@ Presentation on Vue3
 * Placement of key property
 * .native modifier removal
 * Template element handling
-* Updated and renamed life cycle hooks
 * Browser support (planned IE11 support dropped)
 * class and style attribute inheritance
 * event naming convention
