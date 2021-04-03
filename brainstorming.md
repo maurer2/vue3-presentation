@@ -16,6 +16,7 @@ Presentation on Vue3
 * Browser support (planned IE11 support dropped)
 * class and style attribute inheritance
 * event naming convention
+* v-model syntax changes
 
 ## Improvements (templates)
 * Multiple roots/ Fragments

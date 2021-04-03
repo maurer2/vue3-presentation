@@ -132,3 +132,10 @@ export default {
   <td>Column</td>
   <td>Column</td>
 ```
+
+## Multiple v-models
+- v-model is used for two way data-binding in Vue
+- mostly used for form bindings and child to parent communication
+- syntactic sugar for passing a value prop and emitting an input event by default, but prop name and event can be customized
+- Vue2 only supports a single v-model prop per component
+- Vue3 allows multiple v-models per component and loosens naming restrictions
