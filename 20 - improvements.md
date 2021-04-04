@@ -141,13 +141,14 @@ export default {
 - Vue3 allows multiple v-models per component
 - Vue3 also takes over functionality of .sync modifier, which has been removed in Vue3
 - v-model changes significantly when used with custom components but stays the same when used with form fields
+- v-model can be extracted in hook: https://dev.to/thomasfindlay/how-to-easily-sync-with-multiple-v-models-in-vue-3-using-composition-api-1pmg
 
 ### Example for v-model for form binding in Vue2 and Vue3
 
 ```html
 <form>
   <label for="text">Text:</label>
-  <input v-model="text" id="text" type="text" placeholder="Enter text" />
+  <input v-model="text" id="text" placeholder="Enter text" />
 </form>
 ```
 
@@ -171,7 +172,6 @@ export default {
 </div>
 ```
 
-#### Parent
 ```ts
 export default {
   data() {
@@ -186,24 +186,85 @@ export default {
 
 ```html
 <div>
-  <input v-model="text" id="text" type="text" placeholder="Enter text" />
+  <label for="text">Text:</label>
+  <input v-model="text" id="text" placeholder="Enter text" />
 </div>
 ```
 
 ```ts
 export default {
   props: {
-    modelValue: String, // was changed from value
+    modelValue: String, // prop-name used to be value
   },
   text: {
-      set(newValue) {
-        this.$emit('update:modelValue', newValue)
-      },
-      get() {
-        return this.modalValue
-      },
+    set(newValue) {
+      this.$emit('update:modelValue', newValue) // event-name used to be input
     },
+    get() {
+      return this.modalValue
+    },
+  },
 }
 ```
 
-### Example for multiple v-models with custom components
+### Example for multiple v-model for component data in Vue3
+
+### Parent
+
+```html
+<div>
+  <child-component v-model:firstName="firstName" v-model:lastName="lastName"  />
+</div>
+```
+
+```ts
+export default {
+  data() {
+    return {
+      firstName: '',
+      lastName: '',
+    }
+  }
+}
+```
+
+#### Child
+
+```html
+<fieldset>
+  <label for="first-name">First name:</label>
+  <input v-model="firstNameValue" id="first-name" placeholder="Enter first name" />
+
+  <label for="last-name">Last name:</label>
+  <input v-model="lastNameValue" id="last-name" placeholder="Enter last name" />
+</fieldset>
+```
+
+```ts
+export default {
+  props: {
+    firstName: String,
+    lastName: String,
+  },
+  firstNameValue: {
+    set(newValue) {
+      this.$emit('update:firstName', newValue)
+    },
+    get() {
+      return this.firstName
+    },
+  },
+  lastNameValue: {
+    set(newValue) {
+      this.$emit('update:lastName', newValue)
+    },
+    get() {
+      return this.lastName
+    },
+  },
+}
+```
+
+### Custom v-model filter
+
+- ToDo
