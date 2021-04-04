@@ -251,7 +251,7 @@ export default {
 
 ```ts
 export default {
-   emits: [
+  emits: [
     'updateTextValue',
   ],
   methods: {

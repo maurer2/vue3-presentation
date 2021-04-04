@@ -139,3 +139,54 @@ export default {
 - syntactic sugar for passing a value prop and emitting an input event by default, but prop name and event can be customized
 - Vue2 only supports a single v-model prop per component
 - Vue3 allows multiple v-models per component and loosens naming restrictions
+- Vue3 also takes over functionality of .sync modifier, which has been removed in Vue3
+
+### Example for basic v-model for form binding
+
+```html
+<form>
+  <label for="text">Text:</label>
+  <input v-model="text" id="text" type="text" placeholder="Enter text" />
+</form>
+```
+
+```ts
+export default {
+  data() {
+    return {
+      text: ''
+    }
+  }
+}
+```
+
+### Example for basic v-model for component data
+
+```html
+<div>
+  <child-component v-model="text" />
+</div>
+```
+
+#### Parent
+```ts
+export default {
+  data() {
+    return {
+      text: ''
+    }
+  }
+}
+```
+
+#### Child
+
+```ts
+export default {
+  props: {
+    text: String,
+  }
+}
+```
+
+### Example for custom v-model settings via model-settings
