@@ -138,10 +138,11 @@ export default {
 - mostly used for form bindings and child to parent communication
 - syntactic sugar for passing a value prop and emitting an input event by default, but prop name and event can be customized
 - Vue2 only supports a single v-model prop per component
-- Vue3 allows multiple v-models per component and loosens naming restrictions
+- Vue3 allows multiple v-models per component
 - Vue3 also takes over functionality of .sync modifier, which has been removed in Vue3
+- v-model changes significantly when used with custom components but stays the same when used with form fields
 
-### Example for basic v-model for form binding
+### Example for v-model for form binding in Vue2 and Vue3
 
 ```html
 <form>
@@ -160,7 +161,9 @@ export default {
 }
 ```
 
-### Example for basic v-model for component data
+### Example for single v-model for component data in Vue3
+
+### Parent
 
 ```html
 <div>
@@ -181,12 +184,26 @@ export default {
 
 #### Child
 
+```html
+<div>
+  <input v-model="text" id="text" type="text" placeholder="Enter text" />
+</div>
+```
+
 ```ts
 export default {
   props: {
-    text: String,
-  }
+    modelValue: String, // was changed from value
+  },
+  text: {
+      set(newValue) {
+        this.$emit('update:modelValue', newValue)
+      },
+      get() {
+        return this.modalValue
+      },
+    },
 }
 ```
 
-### Example for custom v-model settings via model-settings
+### Example for multiple v-models with custom components
