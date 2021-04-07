@@ -196,6 +196,7 @@ export default {
   props: {
     modelValue: String, // prop-name used to be value
   },
+  emits: ['update:modelValue'],
   text: {
     set(newValue) {
       this.$emit('update:modelValue', newValue) // event-name used to be input
@@ -246,6 +247,7 @@ export default {
     firstName: String,
     lastName: String,
   },
+  emits: ['update:firstName', 'update:lastName'],
   firstNameValue: {
     set(newValue) {
       this.$emit('update:firstName', newValue)
@@ -265,6 +267,42 @@ export default {
 }
 ```
 
-### Custom v-model filter
+### Custom v-model modifier
+- there are already built in modifiers like `.number` or `trim`
+- can be extended with custom modifiers
+- example: replace non-latin-characters with latin equivalent (e.g. lodash deburr), replace easily confused characters (e.g. always 0 instead of O or o etc.)
 
-- ToDo
+### Parent
+
+```html
+<div>
+  <child-component v-model.meowMode="text" />
+</div>
+```
+
+#### Child
+
+```ts
+export default {
+  props: {
+    modelValue: String,
+    modelModifiers: {
+      default: () => {}
+    }
+  },
+  emits: ['update:modelValue'],
+  value: {
+    set(newValue: string): void {
+      let newValueTransformed = newValue
+
+      if (meowMode in this.modelModifiers) {
+        newValueTransformed = newValueTransformed.replaceAll(/dog/ig, 'CAT')
+      }
+      this.$emit('update:modelValue', newValueTransformed)
+    },
+    get(): string {
+      return this.modelValue
+    },
+  },
+}
+```
