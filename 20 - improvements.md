@@ -271,6 +271,8 @@ export default {
 - there are already built in modifiers like `.number` or `trim`
 - can be extended with custom modifiers
 - example: replace non-latin-characters with latin equivalent (e.g. lodash deburr), replace easily confused characters (e.g. always 0 instead of O or o etc.)
+- can only be used on custom components
+- v-model with form bindings only supports built-in modifiers
 
 ### Parent
 
@@ -295,8 +297,8 @@ export default {
     set(newValue: string): void {
       let newValueTransformed = newValue
 
-      if (meowMode in this.modelModifiers) {
-        newValueTransformed = newValueTransformed.replaceAll(/dog/ig, 'CAT')
+      if ('meowMode' in this.modelModifiers) {
+        newValueTransformed = newValueTransformed.replace(/dog/ig, 'CAT')
       }
       this.$emit('update:modelValue', newValueTransformed)
     },
