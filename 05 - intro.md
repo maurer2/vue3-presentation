@@ -5,9 +5,8 @@
 - Remove Vue2 reactivity issues (no more Vue.set etc.)
 - Unify and extend data binding (v-model vs .sync, multiple v-models)
 - Remove Vue2 template limitations (fragments, multi-root etc.)
-- Simplify component splitting to avoid overly complex components (monster components)
-- More FP, less OOP
-- Faster, smaller etc.
+- Simplify component splitting to avoid overly complex components (monster components) -> Composition api
+- Make it faster, smaller etc.
 
 ## Better Typescript support
 - Vue2 was written using Flow with types for Typescript being generated separately
@@ -28,3 +27,7 @@
 - Vue2.0 removed the .sync modifier and brought it back in Vue2.3
 - Vue3.0 removes .sync again in favour of a more powerful and extended v-model functionality
 - Component can now have multiple v-models attributes and define custom modifiers
+
+## Remove Vue2 template limitations
+- Vue2.0 only allows a single root element per component
+- Vue3.0 removes this limitations
