@@ -112,7 +112,7 @@ export default {
 ```
 
 ## Template Fragments / Multiple template roots
-- Vue2 permits templates to only have one root element
+- older versions than Vue2 allowed multiple root elements but Vue2 only permits templates to only have one root element
 - can cause issues when a wrapper element around child elements causes invalid html (table-structure, dl-elements) or a flat html structure is needed for css (flexbox, grid)
 - in Vue2 one had to use a render function to work around this
 - Vue3 allows multiple root elements
