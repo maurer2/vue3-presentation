@@ -11,13 +11,100 @@
 - Single large setup function per component (debatable)
 - Console.log debugging more annoying due to Proxy wrapper
 
-## Api
+## Component structure
 
-### Component structure
-- setup function and parameters
-- prop handling
+```html
+<button
+  type="button"
+  @click="handleClick"
+>
+  {{ props.name}} clicked {{ counter }} time(s)
+</button>
+```
+
+```ts
+export default defineComponent({
+  name: 'Component name',
+  props: {
+    name: {
+      type: String as PropType<string>,
+      required: true,
+      default: 'User'
+    }
+  },
+  emits: {},
+  setup(props, context) {
+    const counter = ref<number>(0)
+
+    function handleClick(): void {
+      counter.value += 1
+    }
+
+    return {
+      counter,
+      props,
+    }
+  }
+})
+```
+
+Component logic is contained within the setup function rather than split up in methods, computed and watchers like in the option api.
+Setup function is run once when the component is mounted (hence the name setup) and creates reactive proxy objects for data, computed properties, watchers etc. Unlike functional components in React, the setup function is not run again/rerendered when props change.
+
+## API
+
+### Props handling
+Props are passed to the setup function as the first parameter. In order to specify the correct Type, Vue provides the PropType helper function. It is most useful, when using non primitive-types, to further specify the type, since the built in Object-type in Vue is too generic.
+
+```ts
+....
+props: {
+  myObject: {
+    type: Object as PropType<MyCustomType>,
+    required: false,
+    default: null
+  }
+}
+...
+```
+
+In this example the props parameter of the setup function would contain myObject with the correct type of MyCustomType.
+Unfortunately destructuring props to have a cleaner function is not as straightforward as in React. Destructuring props directly breaks reactivity, so prop changes won't cause updates in the child component. Fortunately Vue provides a built in workaround via the toRefs-function, which keeps reactivity intact.
+
+#### Bad & Good destructuring
+
+```ts
+export default defineComponent({
+  props: {
+    name: {
+      type: String as PropType<string>,
+      required: true,
+      default: 'User'
+    }
+  },
+  // Bad
+  setup({name}, context) {
+
+  // Good
+  setup(props, context) {
+
+    // Bad
+    const {name} = props
+
+    // Good
+    const {name} = toRefs(props)
+  }
+})
+```
+
+When correctly setup with the Vue-elsint-plugin, eslint also shows a warning when trying use top level destructuring.
+
+
+### Event emitting
 
 ### Ref
+
+ALso used for template refs (better than querySelector/)
 
 ### Reactive
 
@@ -25,9 +112,11 @@
 
 ### Watch & WatchEffect
 
+### Lifecycle Methods
+Keeps explicit lifescyle methods unlike React
+
 ### Others
 
-## Gotchas
-- Destructure props like in React doesn't work
+### Create and use custom hooks
 
-## Comparison with modern React
+#### Comparison with modern React
