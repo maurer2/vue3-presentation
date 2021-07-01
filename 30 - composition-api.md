@@ -97,8 +97,10 @@ export default defineComponent({
 })
 ```
 
-When correctly setup with the Vue-elsint-plugin, eslint also shows a warning when trying use top level destructuring.
+When correctly set up with the Vue-eslint-plugin, eslint also shows a warning when trying use top level destructuring. Regular destructuring within functions is fine and doesn't break reactivity // todo: verify
 
+### Exposing data to templates
+Every piece of data, event handlers, computed properties etc. that are used in the template need to be returned from the setup function as part of the return object. The only exception to this are props, which are automatically made available to templates. Other component data that is not returned from the setup function is basically private and can not be used in the template.
 
 ### Event emitting
 
@@ -107,6 +109,7 @@ When correctly setup with the Vue-elsint-plugin, eslint also shows a warning whe
 ALso used for template refs (better than querySelector/)
 
 ### Reactive
+
 
 ### Computed
 
