@@ -18,7 +18,7 @@
 
 
 ```ts
-export default {
+export default defineComponent({
   data () {
     return {
       text: 'lorem ipsum dolor sit amet',
@@ -49,7 +49,7 @@ export default {
     },
     ....
   }
-}
+})
 ```
 
 ### Example filter in component in Vue3
@@ -64,7 +64,7 @@ export default {
 ```
 
 ```ts
-export default {
+export default defineComponent({
   data () {
     return {
       text: 'lorem ipsum dolor sit amet',
@@ -118,7 +118,7 @@ export default {
       return transformedValue
     },
   }
-}
+})
 ```
 
 ## Template tag changes
@@ -155,7 +155,7 @@ export default {
 ```
 
 ```ts
-export default {
+export default defineComponent({
   data () {
     return {
       people: [
@@ -170,7 +170,7 @@ export default {
       ],
     }
   },
-}
+})
 ```
 
 ## Browser support
@@ -250,7 +250,7 @@ export default {
 ```
 
 ```ts
-export default {
+export default defineComponent({
   emits: [
     'updateTextValue',
   ],
@@ -260,5 +260,5 @@ export default {
         this.$emit('updateText') // recommended for Vue3
     },
   }
-}
+})
 ```

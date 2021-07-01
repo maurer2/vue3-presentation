@@ -28,7 +28,7 @@
 ```
 
 ```ts
-export default {
+export default defineComponent({
   props: {
     text: String,
   },
@@ -67,7 +67,7 @@ export default {
       this.$emit('toggle-button')
     },
   }
-}
+})
 ```
 
 
@@ -94,7 +94,7 @@ export default {
 ```
 
 ```ts
-export default {
+export default defineComponent({
   data() {
     return {
       modalIsVisible: false
@@ -108,7 +108,7 @@ export default {
       this.modalIsVisible = true
     }
   }
-}
+})
 ```
 
 ## Template Fragments / Multiple template roots
@@ -153,13 +153,13 @@ export default {
 ```
 
 ```ts
-export default {
+export default defineComponent({
   data() {
     return {
       text: ''
     }
   }
-}
+})
 ```
 
 ### Example for single v-model for component data in Vue3
@@ -173,13 +173,13 @@ export default {
 ```
 
 ```ts
-export default {
+export default defineComponent({
   data() {
     return {
       text: ''
     }
   }
-}
+})
 ```
 
 #### Child
@@ -192,7 +192,7 @@ export default {
 ```
 
 ```ts
-export default {
+export default defineComponent({
   props: {
     modelValue: String, // prop-name used to be value
   },
@@ -205,7 +205,7 @@ export default {
       return this.modalValue
     },
   },
-}
+})
 ```
 
 ### Example for multiple v-model for component data in Vue3
@@ -219,14 +219,14 @@ export default {
 ```
 
 ```ts
-export default {
+export default defineComponent({
   data() {
     return {
       firstName: '',
       lastName: '',
     }
   }
-}
+})
 ```
 
 #### Child
@@ -242,7 +242,7 @@ export default {
 ```
 
 ```ts
-export default {
+export default defineComponent({
   props: {
     firstName: String,
     lastName: String,
@@ -264,7 +264,7 @@ export default {
       return this.lastName
     },
   },
-}
+})
 ```
 
 ### Custom v-model modifier
@@ -285,7 +285,7 @@ export default {
 #### Child
 
 ```ts
-export default {
+export default defineComponent({
   props: {
     modelValue: String,
     modelModifiers: {
@@ -306,5 +306,5 @@ export default {
       return this.modelValue
     },
   },
-}
+})
 ```
