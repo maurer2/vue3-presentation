@@ -43,6 +43,7 @@ export default defineComponent({
     return {
       counter,
       props,
+      handleClick,
     }
   }
 })
@@ -103,6 +104,26 @@ When correctly set up with the Vue-eslint-plugin, eslint also shows a warning wh
 Every piece of data, event handlers, computed properties etc. that are used in the template need to be returned from the setup function as part of the return object. The only exception to this are props, which are automatically made available to templates. Other component data that is not returned from the setup function is basically private and can not be used in the template.
 
 ### Event emitting
+Events are still emitted via the emit method and the emit function still contains of the event name and optional payload. The emit-function is now part of the context object, which is the second parameter of the setup function. The context-parameter can be destrucutured to avoid having to use `context.emit` in the code.
+Further validation for events can be added via the emits-property.
+
+#### Example emit
+```ts
+export default defineComponent({
+  setup(props, {emit}) {
+    const counter = ref<number>(0)
+
+    function handleClick(): void {
+      emit('clicked', counter.value)
+    }
+
+    return {
+      counter,
+      props,
+      handleClick,
+    }
+  }
+})
 
 ### Ref
 
