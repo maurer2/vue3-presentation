@@ -104,7 +104,7 @@ When correctly set up with the Vue-eslint-plugin, eslint also shows a warning wh
 Every piece of data, event handlers, computed properties etc. that are used in the template need to be returned from the setup function as part of the return object. The only exception to this are props, which are automatically made available to templates. Other component data that is not returned from the setup function is basically private and can not be used in the template.
 
 ### Event emitting
-Events are still emitted via the emit method and the emit function still contains of the event name and optional payload. The emit-function is now part of the context object, which is the second parameter of the setup function. The context-parameter can be destrucutured to avoid having to use `context.emit` in the code.
+Events are still emitted via the emit method and the emit function still contains of the event name and optional payload. The emit-function is now part of the context object, which is the second parameter of the setup function. The context-parameter can be destructured to avoid having to use `context.emit` in the code.
 Further validation for events can be added via the emits-property.
 
 #### Example emit
@@ -124,6 +124,16 @@ export default defineComponent({
     }
   }
 })
+```
+
+### Storing reactive data
+The composition api provides ***ref*** and ***reactive*** functions to store reactive values in the setup function. Reactive only accepts objects and creates a proxy object from the passed object. Ref can store primitives like booleans, numbers etc. but also objects. Ref creates a proxy object that has a single key named value, which stores the reactive value. When using ref with an object, reactive is used behind the scenes. Aside from reactive data, ref is also used to store references to dom nodes to have a reactive way to access the dom, without having to use querySelector*All or getElementById.
+
+Since the composition api is fairly new, it might take some time to until certain patterns and best practices emerge similar to the transition to hooks in React.
+
+When accessing ref in the setup function, e.g. inside a computed, watcher etc. it is necessary to read or assign values from/to `refVariable.value`. Assigning a value to the root ref entry won't work and will cause an error in typescript, when properly typed.
+
+Accessing a reactive object is easier, as it is similar to regular object access in Javascript. It is important to know that unlike reactive data in Vue3 reactive is filly reactive, e.g. changing nested data will be detected by Vue. `Vue.set` is no longer necessary.
 
 ### Ref
 
@@ -137,7 +147,7 @@ ALso used for template refs (better than querySelector/)
 ### Watch & WatchEffect
 
 ### Lifecycle Methods
-Keeps explicit lifescyle methods unlike React
+Keeps explicit lifecyle methods unlike React
 
 ### Others
 
