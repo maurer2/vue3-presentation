@@ -176,19 +176,30 @@ export default defineComponent({
 })
 ```
 
-### Ref
+### Reactive dependent data (computed & watchers)
+Just like in the options api, the composition api uses computed properties and watchers to get reactive data that depends on other data. Aside from a change in syntax the haven't changed much. Watchers have changed quite a bit.
 
-ALso used for template refs (better than querySelector/)
+#### Example computed
 
-### Reactive
+```ts
+export default defineComponent({
+  setup() {
+    const counter = ref<number>(0)
 
+    const hasBeenClicked = computed<boolean>(() => counter.value !== 0)
 
-### Computed
+    return {
+      counter,
+      hasBeenClicked,
+    }
+  }
+})
+
 
 ### Watch & WatchEffect
 
 ### Lifecycle Methods
-Keeps explicit lifecyle methods unlike React
+Keeps explicit lifecycle methods unlike React
 
 ### Others
 
