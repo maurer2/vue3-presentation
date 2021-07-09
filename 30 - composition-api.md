@@ -131,9 +131,50 @@ The composition api provides ***ref*** and ***reactive*** functions to store rea
 
 Since the composition api is fairly new, it might take some time to until certain patterns and best practices emerge similar to the transition to hooks in React.
 
-When accessing ref in the setup function, e.g. inside a computed, watcher etc. it is necessary to read or assign values from/to `refVariable.value`. Assigning a value to the root ref entry won't work and will cause an error in typescript, when properly typed.
+When accessing a ref entry in the setup function, e.g. inside a computed, watcher etc. it is necessary to read or assign values from/to `refVariable.value`. Assigning a value to the root ref entry won't work and will cause an error in typescript, when properly typed.
+When accessing a ref entry in the template, it is not required to access `refVariable.value`, as refs are unwrapped automatically, so `refVariable` is enough.
 
 Accessing a reactive object is easier, as it is similar to regular object access in Javascript. It is important to know that unlike reactive data in Vue3 reactive is filly reactive, e.g. changing nested data will be detected by Vue. `Vue.set` is no longer necessary.
+
+#### Example
+```html
+<code>
+  <pre>
+    {{ counterRef }}
+    {{ counterReactiveRight }}
+  </pre>
+</code>
+```
+
+```ts
+export default defineComponent({
+  setup() {
+    // Okay
+    const counterRef = ref<number>(0)
+    // Not okay
+    const counterReactiveWrong = reactive<number>(0)
+    // Okay
+    const counterReactiveRight = reactive<CounterType>({
+      counterValue: 0,
+    })
+
+    function updateValues(): void {
+      // Okay
+      counterRef.value = Math.round(Math.random() * 10)
+      // Not okay
+      counterRef = Math.round(Math.random() * 10)
+      // Okay
+      counterReactiveRight.value = Math.round(Math.random() * 10)
+    }
+
+    return {
+      counterRef,
+      counterReactiveRight,
+      updateValues,
+    }
+  }
+})
+```
 
 ### Ref
 
