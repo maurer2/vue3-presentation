@@ -881,16 +881,6 @@ supports-color@^7.1.0:
   dependencies:
     has-flag "^4.0.0"
 
-systemjs-babel@^0.3.1:
-  version "0.3.1"
-  resolved "https://registry.yarnpkg.com/systemjs-babel/-/systemjs-babel-0.3.1.tgz#4b864be909b542fb7a84303f24d0dbdbc35da2e1"
-  integrity sha512-ggZ+v7RSKmN1OlAd46REpfZJmBTnrBUH1zgHnSalIB0KPepfPXEm1p2auE6v7wCmJl231EyApRxnw6X3SgpQtA==
-
-systemjs@^6.10.2:
-  version "6.10.2"
-  resolved "https://registry.yarnpkg.com/systemjs/-/systemjs-6.10.2.tgz#c9870217bddf9cfd25d12d4fcd1989541ef1207c"
-  integrity sha512-PwaC0Z6Y1E6gFekY2u38EC5+5w2M65jYVrD1aAcOptpHVhCwPIwPFJvYJyryQKUyeuQ5bKKI3PBHWNjdE9aizg==
-
 table@^6.0.9:
   version "6.7.1"
   resolved "https://registry.yarnpkg.com/table/-/table-6.7.1.tgz#ee05592b7143831a8c94f3cee6aae4c1ccef33e2"
