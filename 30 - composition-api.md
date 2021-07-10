@@ -176,7 +176,7 @@ export default defineComponent({
 })
 ```
 
-### Reactive dependent data (computed & watchers)
+### Reactive dependent data
 Just like in the options api, the composition api uses computed properties and watchers to get reactive data that depends on other data. Aside from a change in syntax the haven't changed much. Watchers have changed quite a bit.
 
 #### Example computed
@@ -194,9 +194,9 @@ export default defineComponent({
     }
   }
 })
+```
 
-
-### Watch & WatchEffect
+#### Watch & WatchEffect
 
 ### Lifecycle Methods
 Keeps explicit lifecycle methods unlike React
