@@ -18,7 +18,7 @@
   type="button"
   @click="handleClick"
 >
-  {{ props.name}} clicked {{ counter }} time(s)
+  {{ name}} clicked {{ counter }} time(s)
 </button>
 ```
 
@@ -42,14 +42,13 @@ export default defineComponent({
 
     return {
       counter,
-      props,
       handleClick,
     }
   }
 })
 ```
 
-Component logic is contained within the setup function rather than split up in methods, computed and watchers like in the option api.
+Component logic is contained within the setup function rather than split up in methods, computed and watchers like in the options api.
 Setup function is run once when the component is mounted (hence the name setup) and creates reactive proxy objects for data, computed properties, watchers etc. Unlike functional components in React, the setup function is not run again/rerendered when props change.
 
 ## API
@@ -98,7 +97,7 @@ export default defineComponent({
 })
 ```
 
-When correctly set up with the Vue-eslint-plugin, eslint also shows a warning when trying use top level destructuring. Regular destructuring within functions is fine and doesn't break reactivity // todo: verify
+When correctly set up with the `vue-eslint-plugin`, eslint also shows a warning when trying use top level destructuring. Regular destructuring within functions is fine and doesn't break reactivity // todo: verify
 
 ### Exposing data to templates
 Every piece of data, event handlers, computed properties etc. that are used in the template need to be returned from the setup function as part of the return object. The only exception to this are props, which are automatically made available to templates. Other component data that is not returned from the setup function is basically private and can not be used in the template.
@@ -119,7 +118,6 @@ export default defineComponent({
 
     return {
       counter,
-      props,
       handleClick,
     }
   }
@@ -185,7 +183,6 @@ Just like in the options api, the composition api uses computed properties and w
 export default defineComponent({
   setup() {
     const counter = ref<number>(0)
-
     const hasBeenClicked = computed<boolean>(() => counter.value !== 0)
 
     return {
