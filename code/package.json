@@ -7,9 +7,10 @@
     "eslint": "^7.30.0",
     "http-server": "^0.12.3",
     "tsc": "^2.0.3",
-    "typescript": "^4.3.5"
+    "typescript": "^4.3.5",
+    "vue": "^3.1.4"
   },
   "scripts": {
-    "serve": "npx http-server"
+    "serve": "http-server -i true"
   }
 }
