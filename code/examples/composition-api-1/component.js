@@ -17,11 +17,14 @@ export default {
     }
   },
   template: `
-    <button
-      type="button"
-      @click="handleClick"
-    >
-      Clicked {{ counter }} time(s)
-    </button>
+    <div>
+      <h1>Test</h1>
+      <button
+        type="button"
+        @click="handleClick"
+      >
+        Clicked {{ counter }} time(s)
+      </button>
+    </div>
   `
 }

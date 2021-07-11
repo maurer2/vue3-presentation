@@ -1,0 +1,34 @@
+:root {
+  --rich-black-fogra-39: #070707ff;
+  --english-violet: #553555ff;
+  --old-lavender: #755b69ff;
+  --cambridge-blue: #96c5b0ff;
+  --magic-mint: #adf1d2ff;
+}
+
+html {
+  height: -webkit-fill-available;
+  font-size: 16px;
+  background: var(--rich-black-fogra-39);
+  font-family: -apple-system, BlinkMacSystemFont,
+    "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans",
+    "Droid Sans", "Helvetica Neue", sans-serif;
+}
+
+body {
+  display: grid;
+  place-items: center;
+  height: 100%;
+  min-height: 100%;
+  width: clamp(40ch, 60ch, 100ch);
+  max-width: 90%;
+  margin: auto;
+}
+
+.root {
+  width: 100%;
+  padding: 2rem;
+  background: var(--english-violet);
+  color: var(--cambridge-blue);
+}
