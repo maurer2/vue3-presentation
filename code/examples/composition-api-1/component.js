@@ -1,24 +1,21 @@
-import { ref, computed } from 'vue'
-
+import { ref, computed } from 'vue';
 export default {
-  name: 'TestComponent',
-  setup() {
-    const counter = ref(0)
-    const hasBeenClicked = computed(() => counter.value !== 0)
-
-    function handleClick() {
-      counter.value += 1
-    }
-
-    return {
-      counter,
-      hasBeenClicked,
-      handleClick,
-    }
-  },
-  template: `
+    name: 'TestComponent',
+    setup() {
+        const counter = ref(0);
+        const hasBeenClicked = computed(() => counter.value !== 0);
+        function handleClick() {
+            counter.value += 1;
+        }
+        return {
+            counter,
+            hasBeenClicked,
+            handleClick,
+        };
+    },
+    template: `
     <div>
-      <h1>Test</h1>
+      <h1>Test 2</h1>
       <button
         type="button"
         @click="handleClick"
@@ -27,4 +24,4 @@ export default {
       </button>
     </div>
   `
-}
+};
