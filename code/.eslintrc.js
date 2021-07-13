@@ -1,0 +1,29 @@
+module.exports = {
+  root: true,
+  env: {
+    node: true,
+    jest: true,
+  },
+  parserOptions: {
+    parser: '@typescript-eslint/parser',
+    sourceType: 'module',
+  },
+  extends: [
+    'eslint:recommended',
+    'eslint-config-airbnb-base',
+    '@vue/typescript/recommended',
+    'plugin:vue/vue3-recommended',
+  ],
+  rules: {
+    'vue/component-definition-name-casing': 'off',
+    'vue/component-name-in-template-casing': 'error',
+    'newline-before-return': 'error',
+  },
+  settings: {
+    'import/resolver': {
+      node: {
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      },
+    },
+  },
+};

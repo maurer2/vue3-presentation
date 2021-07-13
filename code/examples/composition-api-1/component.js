@@ -1,5 +1,5 @@
-import { ref, computed } from 'vue';
-export default {
+import { ref, computed, defineComponent } from 'vue';
+export default defineComponent({
     name: 'TestComponent',
     setup() {
         const counter = ref(0);
@@ -23,5 +23,5 @@ export default {
         Clicked {{ counter }} time(s)
       </button>
     </div>
-  `
-};
+  `,
+});

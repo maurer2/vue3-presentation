@@ -1,20 +1,20 @@
-import { ref, computed } from 'vue'
+import { ref, computed, defineComponent } from 'vue';
 
-export default {
+export default defineComponent({
   name: 'TestComponent',
   setup() {
-    const counter = ref<number>(0)
-    const hasBeenClicked = computed<boolean>(() => counter.value !== 0)
+    const counter = ref<number>(0);
+    const hasBeenClicked = computed<boolean>(() => counter.value !== 0);
 
     function handleClick(): void {
-      counter.value += 1
+      counter.value += 1;
     }
 
     return {
       counter,
       hasBeenClicked,
       handleClick,
-    }
+    };
   },
   template: `
     <div>
@@ -26,5 +26,5 @@ export default {
         Clicked {{ counter }} time(s)
       </button>
     </div>
-  `
-}
+  `,
+});
