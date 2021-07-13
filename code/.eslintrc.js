@@ -18,6 +18,7 @@ module.exports = {
     'vue/component-definition-name-casing': 'off',
     'vue/component-name-in-template-casing': 'error',
     'newline-before-return': 'error',
+    'import/prefer-default-export': 'off',
   },
   settings: {
     'import/resolver': {

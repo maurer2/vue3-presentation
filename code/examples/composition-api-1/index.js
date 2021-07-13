@@ -1,6 +1,6 @@
-import { createApp, defineAsyncComponent } from 'vue'
+import { createApp, defineAsyncComponent } from 'vue';
 
-const TestComponent = defineAsyncComponent(() => import('./component.js'))
+const TestComponent = defineAsyncComponent(() => import('./component.js'));
 
 export const app = createApp({
   components: {
@@ -9,5 +9,5 @@ export const app = createApp({
   template: `
     <TestComponent />
   `,
-})
-app.mount('#root')
+});
+app.mount('#root');
