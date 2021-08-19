@@ -193,6 +193,15 @@ export default defineComponent({
 })
 ```
 
+### Script setup syntactic sugar
+Script setup (with composition api and SFC)is now the recommended way to author Vue3 components (https://github.com/vuejs/rfcs/discussions/378#discussioncomment-1158805).
+
+#### Example
+
+#### Testing
+
+#### Editor support
+
 #### Watch & WatchEffect
 
 ### Lifecycle Methods
