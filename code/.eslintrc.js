@@ -13,6 +13,7 @@ module.exports = {
     'eslint-config-airbnb-base',
     '@vue/typescript/recommended',
     'plugin:vue/vue3-recommended',
+    'plugin:import/recommended',
   ],
   rules: {
     'vue/component-definition-name-casing': 'off',
