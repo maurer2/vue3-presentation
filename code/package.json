@@ -4,13 +4,13 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "serve": "npm run build:examples; http-server -i true -c-1 -o /examples",
+    "serve": "npm run build:examples; http-server -i true -c-1 -o /examples -p 8085",
     "build:examples": "tsc",
     "watch:examples": "tsc --watch",
     "lint": "eslint examples/**/*.ts --fix",
     "lint:types": "vue-tsc ./examples/*/*.ts --noEmit --skipLibCheck",
     "debug": "which carbon-now",
-    "screenshots": "find . -path '*/examples/*' -name 'package.json' -execdir npm run screenshot \\;"
+    "screenshots": "clear && find . -path '*/examples/*' -name 'package.json' -execdir npm run screenshot \\;"
   },
   "dependencies": {
     "@typescript-eslint/parser": "^4.4.0",
