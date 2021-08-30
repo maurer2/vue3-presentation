@@ -15,7 +15,6 @@ export default defineComponent({
     },
     template: `
     <div>
-      <h1>Test</h1>
       <button
         type="button"
         @click="handleClick"

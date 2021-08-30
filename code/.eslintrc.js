@@ -20,6 +20,7 @@ module.exports = {
     'vue/component-name-in-template-casing': 'error',
     'newline-before-return': 'error',
     'import/prefer-default-export': 'off',
+    'import/no-extraneous-dependencies': 'off',
   },
   settings: {
     'import/resolver': {
