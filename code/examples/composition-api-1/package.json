@@ -1,5 +1,8 @@
 {
   "scripts": {
-    "screenshot": "npx carbon-now-cli ./component.ts --headless --target screenshot"
+    "screenshot": "../../node_modules/.bin/carbon-now ./component.ts --headless --target screenshot -s 3"
+  },
+  "bin": {
+    "carbon-now": "../../node_modules/.bin/carbon-now"
   }
 }

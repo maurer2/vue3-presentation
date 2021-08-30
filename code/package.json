@@ -8,7 +8,8 @@
     "build:examples": "tsc",
     "watch:examples": "tsc --watch",
     "lint": "eslint examples/**/*.ts --fix",
-    "lint:types": "vue-tsc ./examples/*/*.ts --noEmit --skipLibCheck"
+    "lint:types": "vue-tsc ./examples/*/*.ts --noEmit --skipLibCheck",
+    "debug": "which carbon-now"
   },
   "dependencies": {
     "@typescript-eslint/parser": "^4.4.0",
