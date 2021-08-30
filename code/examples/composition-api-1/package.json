@@ -1,0 +1,5 @@
+{
+  "scripts": {
+    "screenshot": "npx carbon-now-cli ./component.ts --headless --target screenshot"
+  }
+}
