@@ -15,7 +15,6 @@
     "@typescript-eslint/parser": "^4.4.0",
     "@vue/eslint-config-airbnb": "^5.3.0",
     "carbon-now-cli": "^1.4.0",
-    "carbon-now-dir": "^0.9.1",
     "es-module-shims": "0.12.1",
     "eslint": "^7.0.0",
     "eslint-plugin-import": "^2.23.4",

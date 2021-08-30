@@ -687,16 +687,6 @@ carbon-now-cli@^1.4.0:
     terminal-image "^0.1.2"
     update-notifier "^2.5.0"
 
-carbon-now-dir@^0.9.1:
-  version "0.9.1"
-  resolved "https://registry.yarnpkg.com/carbon-now-dir/-/carbon-now-dir-0.9.1.tgz#6183215b6b86767e8327fe590ce748bc137136e9"
-  integrity sha512-+6WR6tigk5AIn0JJgI3V0YGOgkgrtZCaJmCOJEIDMHEhgA71TT0ciqwLWERc4F1Y5W98fo5XduiSpDT4lJ/s0w==
-  dependencies:
-    carbon-now-cli "^1.4.0"
-    chalk "^2.4.2"
-    meow "^5.0.0"
-    node-readfiles "^0.2.0"
-
 chainsaw@~0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/chainsaw/-/chainsaw-0.1.0.tgz#5eab50b28afe58074d0d58291388828b5e5fbc98"
@@ -1160,11 +1150,6 @@ es-to-primitive@^1.2.1:
     is-callable "^1.1.4"
     is-date-object "^1.0.1"
     is-symbol "^1.0.2"
-
-es6-promise@^3.2.1:
-  version "3.3.1"
-  resolved "https://registry.yarnpkg.com/es6-promise/-/es6-promise-3.3.1.tgz#a08cdde84ccdbf34d027a1451bc91d4bcd28a613"
-  integrity sha1-oIzd6EzNvzTQJ6FFG8kdS80ophM=
 
 es6-promise@^4.0.3:
   version "4.2.8"
@@ -2771,13 +2756,6 @@ natural-compare@^1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/natural-compare/-/natural-compare-1.4.0.tgz#4abebfeed7541f2c27acfb29bdbbd15c8d5ba4f7"
   integrity sha1-Sr6/7tdUHywnrPspvbvRXI1bpPc=
-
-node-readfiles@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/node-readfiles/-/node-readfiles-0.2.0.tgz#dbbd4af12134e2e635c245ef93ffcf6f60673a5d"
-  integrity sha1-271K8SE04uY1wkXvk//Pb2BnOl0=
-  dependencies:
-    es6-promise "^3.2.1"
 
 normalize-package-data@^2.3.2, normalize-package-data@^2.3.4:
   version "2.5.0"
