@@ -1,5 +1,5 @@
 {
   "scripts": {
-    "screenshot": "../../node_modules/.bin/carbon-now ./component.ts --headless --target screenshot -s 3"
+    "screenshot": "../../node_modules/.bin/carbon-now ./component.ts --config ../../.carbon-now.json -p default --headless --target screenshot -s 3"
   }
 }
