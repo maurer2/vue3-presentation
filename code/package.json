@@ -9,7 +9,8 @@
     "watch:examples": "tsc --watch",
     "lint": "eslint examples/**/*.ts --fix",
     "lint:types": "vue-tsc ./examples/*/*.ts --noEmit --skipLibCheck",
-    "debug": "which carbon-now"
+    "debug": "which carbon-now",
+    "screenshots": "find . -path '*/examples/*' -name 'package.json' -execdir npm run screenshot \\;"
   },
   "dependencies": {
     "@typescript-eslint/parser": "^4.4.0",
