@@ -31,3 +31,29 @@
 /* https://hiroppy.github.io/fusuma/docs/guides/slide-syntax#declaring-section-title */
 .section-title {
 }
+
+.swiper-slide[class*="width-"] img {
+  display: block;
+  margin-bottom: 10px;
+  background: red;
+}
+
+.swiper-slide.width-25 img {
+  width: 25%;
+}
+
+.swiper-slide.width-33 img {
+  width: 33%;
+}
+
+.swiper-slide.width-50 img {
+  width: 50%;
+}
+
+.swiper-slide.width-66 img {
+  width: 66%;
+}
+
+.swiper-slide.width-75 img {
+  width: 75%;
+}
