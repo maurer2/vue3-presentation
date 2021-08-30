@@ -1025,6 +1025,15 @@
     loader-utils "^2.0.0"
     prismjs "^1.23.0"
 
+"@fusuma/task-pdf@^2.8.4":
+  version "2.8.4"
+  resolved "https://registry.yarnpkg.com/@fusuma/task-pdf/-/task-pdf-2.8.4.tgz#23af95c10de70fe856e8b9031903becf560a46c9"
+  integrity sha512-miAmsC4JeDVZILUXKqBbjm8YZdg6wcxCPX1KX+r9WDhlYRhTJ+ssf+XpH38zEU12ntTetk37lpzBcRKW+Eb93Q==
+  dependencies:
+    easy-pdf-merge "^0.2.6"
+    fusuma "^2.8.4"
+    puppeteer "^8.0.0"
+
 "@mdx-js/mdx@^1.6.22":
   version "1.6.22"
   resolved "https://registry.yarnpkg.com/@mdx-js/mdx/-/mdx-1.6.22.tgz#8a723157bf90e78f17dc0f27995398e6c731f1ba"
@@ -2581,6 +2590,11 @@ duplexer3@^0.1.4:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/duplexer3/-/duplexer3-0.1.4.tgz#ee01dd1cac0ed3cbc7fdbea37dc0a8f1ce002ce2"
   integrity sha1-7gHdHKwO08vH/b6jfcCo8c4ALOI=
+
+easy-pdf-merge@^0.2.6:
+  version "0.2.6"
+  resolved "https://registry.yarnpkg.com/easy-pdf-merge/-/easy-pdf-merge-0.2.6.tgz#0a87e693d408ca2d0e518f3fc9371cbe8f9fa8d5"
+  integrity sha512-NJ8h82VZQxSt+2Xzb9A9eBasBnH+oltTULri45ulSzJ17TJwdH6LDqHcBWqbcbIfONL2rkuY0omsxpvtCIE46w==
 
 ee-first@1.1.1:
   version "1.1.1"

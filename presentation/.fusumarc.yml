@@ -1,17 +1,27 @@
+# https://dev.to/dastasoft/present-like-a-pro-with-fusuma-and-markdown-4jge
 meta:
   url:
-  title:
+  title: A View on Vue3
   description:
   siteName:
-  sns: ['twitter']
+  sns: []
 slide:
   loop: false
   ui:
-    sidebar: true
+    sidebar: false
     vertical: false
-    pagination: # bullets | progressbar | fraction
+    pagination: bullets # bullets | progressbar | fraction
     effect: # fade | cube | flip
   code:
     # https://prismjs.com/
-    plugins: []
-    theme: default # coy | dark | funky | okaidia | solarizedlight | tomorrow | twilight
+    languages:
+      - javascript
+      - typescript
+      - vue
+      - react
+      - html
+      - json
+    plugins:
+      - line-numbers
+      - highlight-keywords
+    theme: tomorrow #default # coy | dark | funky | okaidia | solarizedlight | tomorrow | twilight

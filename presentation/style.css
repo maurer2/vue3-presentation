@@ -3,7 +3,7 @@
 /* see https://github.com/hiroppy/fusuma#themes */
 /* @import '@fusuma/client/assets/style/themes/pop.css'; */
 /* @import '@fusuma/client/assets/style/themes/babel.css'; */
-/* @import '@fusuma/client/assets/style/themes/webpack.css'; */
+@import '@fusuma/client/assets/style/themes/webpack.css';
 /* @import '@fusuma/client/assets/style/themes/node.css'; */
 
 /* global config */

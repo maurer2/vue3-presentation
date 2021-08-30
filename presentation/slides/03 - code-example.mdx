@@ -1,0 +1,55 @@
+<!-- section-title: Code example -->
+## Code example
+
+---
+
+## 2 Columns
+<!-- block-start: grid -->
+<!-- block-start: column -->
+<!-- classes: grid.sm -->
+- Better Typescript integration
+- Remove Vue2 reactivity issues (no more Vue.set etc.)
+- Unify and extend data binding (v-model vs .sync, multiple v-models)
+- Remove Vue2 template limitations (fragments, multi-root etc.)
+- Simplify component splitting to avoid overly complex components (monster components) -> Composition api
+- Make it faster, smaller etc.
+
+<!-- block-end -->
+<!-- block-start: column -->
+```typescript
+<div>
+  <child-component
+    @custom-event="handleCustomEvent"
+    @click.prevent="handleClickEvent" // listens for click event
+    @click="handleClickEvent" // listens for emitted events e.g. this.$emit('click', newValue)
+
+  />
+</div>
+```
+<!-- block-end -->
+<!-- block-end -->
+
+---
+
+## Test
+
+```typescript
+<div>
+  <child-component
+    @custom-event="handleCustomEvent"
+    @click.prevent="handleClickEvent" // listens for click event
+    @click="handleClickEvent" // listens for emitted events e.g. this.$emit('click', newValue)
+  />
+</div>
+```
+
+<!-- fragments-start -->
+
+Step 1
+
+<!-- fragments-end -->
+<!-- fragments-start -->
+
+Step 2
+
+<!-- fragments-end -->

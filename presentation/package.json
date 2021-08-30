@@ -4,6 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
+    "@fusuma/task-pdf": "^2.8.4",
     "fusuma": "^2.8.4"
   },
   "scripts": {
