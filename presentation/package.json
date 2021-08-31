@@ -5,9 +5,12 @@
   "license": "MIT",
   "dependencies": {
     "@fusuma/task-pdf": "^2.8.4",
-    "fusuma": "^2.8.4"
+    "fusuma": "^2.8.4",
+    "http-server": "^13.0.1"
   },
   "scripts": {
-    "start": "fusuma start"
+    "start": "fusuma start",
+    "build": "fusuma build",
+    "serve": "http-server dist -p 8089"
   }
 }

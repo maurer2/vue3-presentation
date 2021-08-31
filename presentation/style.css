@@ -43,7 +43,7 @@
 }
 
 .swiper-slide.width-33 img {
-  width: 33%;
+  width: calc(100% / 3);
 }
 
 .swiper-slide.width-50 img {
@@ -51,7 +51,7 @@
 }
 
 .swiper-slide.width-66 img {
-  width: 66%;
+  width: calc((100% / 3) * 2);
 }
 
 .swiper-slide.width-75 img {
