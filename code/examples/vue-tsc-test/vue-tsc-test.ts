@@ -5,7 +5,7 @@ export default defineComponent({
   setup() {
     const numberValue = ref<number>(101);
 
-    const splitTest = computed<boolean>(() => numberValue.value.split('1'));
+    // const splitTest = computed<boolean>(() => numberValue.value.split('1'));
 
     return {
       numberValue,
