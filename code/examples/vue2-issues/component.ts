@@ -1,6 +1,6 @@
-import { defineComponent } from 'vue';
+import Vue from 'vue';
 
-export default defineComponent({
+export default Vue.extend({
   data() {
     return {
       player1Name: 'Player 1',
@@ -22,7 +22,7 @@ export default defineComponent({
   },
   template: `
     <div>
-    {{ player1Score }}
+    {{ player1Name }} {{ player1Score }}
       <button
         type="button"
         @click="() => handleClick(true)"

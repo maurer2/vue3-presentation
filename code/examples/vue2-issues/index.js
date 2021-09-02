@@ -1,13 +1,15 @@
-import { createApp, defineAsyncComponent } from 'vue';
+import Vue from 'vue';
 
-const TestComponent = defineAsyncComponent(() => import('./component.js'));
+Vue.component(
+  'TestComponent',
+  // A dynamic import returns a Promise.
+  () => import('./component.js'),
+);
 
-export const app = createApp({
-  components: {
-    TestComponent,
-  },
+export const app = new Vue({
   template: `
     <TestComponent />
   `,
 });
-app.mount('#root');
+
+app.$mount('#root');
