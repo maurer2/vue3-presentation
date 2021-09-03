@@ -25,7 +25,8 @@
     "tsc": "^2.0.3",
     "typescript": "^4.3.5",
     "vue": "^3.1.4",
-    "vue-tsc": "^0.0.25"
+    "vue-tsc": "^0.0.25",
+    "vue2": "npm:vue@^2.6.1"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^4.4.0",
