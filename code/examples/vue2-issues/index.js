@@ -1,8 +1,7 @@
-import Vue from 'vue';
+import Vue from 'vue2';
 
 Vue.component(
   'TestComponent',
-  // A dynamic import returns a Promise.
   () => import('./component.js'),
 );
 
