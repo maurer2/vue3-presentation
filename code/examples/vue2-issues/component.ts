@@ -1,13 +1,12 @@
 import Vue, { PropType } from 'vue2';
 
-const playerNames = ['Player1', 'Player2'] as const;
+const names = ['Player1', 'Player2'] as const;
 
-type PlayerName = Uppercase<typeof playerNames[number]>
-type Data = {
-  player1Name: PlayerName
-  player1Score: number,
-  player2Name: PlayerName,
-  player2Score: number,
+type Key = Lowercase<typeof names[number]>
+type Name = Uppercase<typeof names[number]>
+type Player = {
+  name: Name,
+  score: number,
 }
 
 export default Vue.extend({
@@ -19,16 +18,20 @@ export default Vue.extend({
   },
   data() {
     return {
-      player1Name: 'PLAYER1',
-      player1Score: 0,
-      player2Name: 'PLAYER2',
-      player2Score: 0,
-    } as Data;
+      player1: {
+        name: 'PLAYER1',
+        score: 0,
+      },
+      player2: {
+        name: 'PLAYER2',
+        score: 0,
+      },
+    } as Record<Key, Player>;
   },
   computed: {
     getTotalNumberOfClicks() {
-      const score1 = this.player1Score as number;
-      const score2 = this.player2Score as number;
+      const score1 = this.player1.score as number;
+      const score2 = this.player2.score as number;
 
       const sumOfClicks = [score1, score2].reduce((total, current) => {
         const newTotal = total + current;
@@ -42,11 +45,12 @@ export default Vue.extend({
   methods: {
     handleClick(isPlayer1: boolean): void {
       if (isPlayer1) {
-        this.player1Score += 1;
+        this.player1.score += 1;
 
         return;
       }
-      this.player2Score += 1;
+
+      this.player2.score += 1;
     },
   },
   template: `
@@ -54,23 +58,23 @@ export default Vue.extend({
       <h1>Total Score {{ getTotalNumberOfClicks }}</h1>
       <div>
         <dl>
-          <dt>{{ player1Name }}</dt><dd> {{ player1Score }}</dd>
+          <dt>{{ player1.name }}</dt><dd> {{ player1.score }}</dd>
         </dl>
         <button
           type="button"
           @click="() => handleClick(true)"
         >
-          {{ player1Name }} click
+          {{ player1.name }} click
         </button>
       </div>
       <dl>
-        <dt>{{ player2Name }}</dt><dd> {{ player2Score }}</dd>
+        <dt>{{ player2.name }}</dt><dd> {{ player2.score }}</dd>
       </dl>
       <button
           type="button"
           @click="() => handleClick(false)"
         >
-          {{ player2Name }} click
+          {{ player2.name }} click
         </button>
     </div>
   `,
