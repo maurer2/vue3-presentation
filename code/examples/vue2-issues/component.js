@@ -9,59 +9,83 @@ export default Vue.extend({
     },
     data() {
         return {
-            player1: {
-                name: 'PLAYER1',
-                score: 0,
+            flags: {
+            // hasStarted: false,
             },
-            player2: {
-                name: 'PLAYER2',
-                score: 0,
-            },
+            players: [
+                {
+                    name: 'PLAYER1',
+                    score: 0,
+                },
+                {
+                    name: 'PLAYER2',
+                    score: 0,
+                },
+            ],
         };
     },
     computed: {
         getTotalNumberOfClicks() {
-            const score1 = this.player1.score;
-            const score2 = this.player2.score;
-            const sumOfClicks = [score1, score2].reduce((total, current) => {
-                const newTotal = total + current;
+            const players = this.players;
+            const sumOfClicks = players.reduce((total, current) => {
+                const newTotal = total + current.score;
                 return newTotal;
             }, 0);
             return sumOfClicks;
         },
+        hasStarted() {
+            const { flags } = this;
+            return flags.hasStarted;
+        },
     },
     methods: {
         handleClick(isPlayer1) {
+            // this.flags.hasStarted = true; // doesn't work
+            // Alternative 1
+            // Vue.set(this.flags, 'hasStarted', true);
+            // Alternative 2
+            this.flags = {
+                ...this.flags,
+                hasStarted: true,
+            };
             if (isPlayer1) {
-                this.player1.score += 1;
+                this.players[0].score += 1;
                 return;
             }
-            this.player2.score += 1;
+            this.players[1].score += 1;
         },
     },
     template: `
     <div class="root">
-      <h1>Total Score {{ getTotalNumberOfClicks }}</h1>
+      <h1>
+        Total Score {{ getTotalNumberOfClicks }}
+        ({{ !!hasStarted ? 'has started' : 'has not started'}})
+      </h1>
       <div>
         <dl>
-          <dt>{{ player1.name }}</dt><dd> {{ player1.score }}</dd>
+          <dt>{{ players[0].name }}</dt>
+          <dd> {{ players[0].score }}</dd>
         </dl>
         <button
           type="button"
-          @click="() => handleClick(true)"
+          @click="handleClick(true)"
         >
-          {{ player1.name }} click
+          Click
         </button>
       </div>
-      <dl>
-        <dt>{{ player2.name }}</dt><dd> {{ player2.score }}</dd>
-      </dl>
-      <button
+      <hr />
+      <div>
+        <dl>
+          <dt>{{ players[1].name }}</dt>
+          <dd> {{ players[1].score }}</dd>
+        </dl>
+        <button
           type="button"
           @click="() => handleClick(false)"
         >
-          {{ player2.name }} click
+          Click
         </button>
+      </div>
     </div>
   `,
 });
