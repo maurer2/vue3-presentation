@@ -1,5 +1,6 @@
 import Vue from 'vue2';
 const names = ['Player1', 'Player2'];
+const flagNames = ['hasStarted'];
 export default Vue.extend({
     props: {
         player2StartValue: {

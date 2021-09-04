@@ -1,7 +1,7 @@
 import Vue, { PropType } from 'vue2';
 
 const names = ['Player1', 'Player2'] as const;
-
+const flagNames = ['hasStarted'] as const;
 type Key = Lowercase<typeof names[number]>
 type Name = Uppercase<typeof names[number]>
 type Player = {
@@ -9,8 +9,9 @@ type Player = {
   score: number,
   key: Key
 }
+type Flags = typeof flagNames[number]
 type Data = {
-  flags: Record<'hasStarted', boolean>
+  flags: Record<Flags, boolean>
   players: Player[]
 }
 
