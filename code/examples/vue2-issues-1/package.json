@@ -1,5 +1,6 @@
 {
   "scripts": {
-    "screenshot": "../../node_modules/.bin/carbon-now ./component.ts --config ../../.carbon-now.json -p default --headless --target screenshot -s 18 -e 80"
+    "screenshot": "../../node_modules/.bin/carbon-now ./component.ts --config ../../.carbon-now.json -p default --headless --target screenshot -s 16 -e 73",
+    "screenshot2": "../../node_modules/.bin/carbon-now ./player.ts --config ../../.carbon-now.json -p default --headless --target screenshot2 -s 10 -e 39"
   }
 }

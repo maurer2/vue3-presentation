@@ -2,6 +2,9 @@ import Vue from 'vue2';
 const names = ['Player1', 'Player2'];
 const flagNames = ['hasStarted'];
 export default Vue.extend({
+    components: {
+        Player: () => import('./player.js'),
+    },
     props: {
         player2StartValue: {
             type: Number,
@@ -41,14 +44,7 @@ export default Vue.extend({
     },
     methods: {
         handleClick(isPlayer1) {
-            // this.flags.hasStarted = true; // doesn't work
-            // Alternative 1
-            // Vue.set(this.flags, 'hasStarted', true);
-            // Alternative 2
-            this.flags = {
-                ...this.flags,
-                hasStarted: true,
-            };
+            this.flags.hasStarted = true; // doesn't work
             if (isPlayer1) {
                 this.players[0].score += 1;
                 return;
@@ -63,30 +59,18 @@ export default Vue.extend({
         ({{ !!hasStarted ? 'has started' : 'has not started'}})
       </h1>
       <div>
-        <dl>
-          <dt>{{ players[0].name }}</dt>
-          <dd> {{ players[0].score }}</dd>
-        </dl>
-        <button
-          type="button"
-          @click="handleClick(true)"
-        >
-          Click
-        </button>
-      </div>
-      <hr />
-      <div>
-        <dl>
-          <dt>{{ players[1].name }}</dt>
-          <dd> {{ players[1].score }}</dd>
-        </dl>
-        <button
-          type="button"
-          @click="() => handleClick(false)"
-        >
-          Click
-        </button>
+        <Player :player="players[0]" @update-player="handleClick(true)" />
+        <hr />
+        <Player :player="players[1]" @update-player="handleClick(false)" />
       </div>
     </div>
   `,
 });
+// Removed for sake of brevity
+// Alternative 1
+// Vue.set(this.flags, 'hasStarted', true);
+// Alternative 2
+// this.flags = {
+//   ...this.flags,
+//   hasStarted: true,
+// };

@@ -2,12 +2,10 @@ import Vue, { PropType } from 'vue2';
 
 const names = ['Player1', 'Player2'] as const;
 const flagNames = ['hasStarted'] as const;
-type Key = Lowercase<typeof names[number]>
 type Name = Uppercase<typeof names[number]>
 type Player = {
   name: Name,
   score: number,
-  key: Key
 }
 type Flags = typeof flagNames[number]
 type Data = {
@@ -16,6 +14,9 @@ type Data = {
 }
 
 export default Vue.extend({
+  components: {
+    Player: () => import('./player.js'),
+  },
   props: {
     player2StartValue: {
       type: Number as PropType<number>,
@@ -40,7 +41,7 @@ export default Vue.extend({
     } as Data;
   },
   computed: {
-    getTotalNumberOfClicks() {
+    getTotalNumberOfClicks(): number {
       const players = this.players as Player[];
 
       const sumOfClicks = players.reduce((total, current) => {
@@ -59,15 +60,7 @@ export default Vue.extend({
   },
   methods: {
     handleClick(isPlayer1: boolean): void {
-      // this.flags.hasStarted = true; // doesn't work
-
-      // Alternative 1
-      // Vue.set(this.flags, 'hasStarted', true);
-      // Alternative 2
-      this.flags = {
-        ...this.flags,
-        hasStarted: true,
-      };
+      this.flags.hasStarted = true; // doesn't work
 
       if (isPlayer1) {
         this.players[0].score += 1;
@@ -85,30 +78,19 @@ export default Vue.extend({
         ({{ !!hasStarted ? 'has started' : 'has not started'}})
       </h1>
       <div>
-        <dl>
-          <dt>{{ players[0].name }}</dt>
-          <dd> {{ players[0].score }}</dd>
-        </dl>
-        <button
-          type="button"
-          @click="handleClick(true)"
-        >
-          Click
-        </button>
-      </div>
-      <hr />
-      <div>
-        <dl>
-          <dt>{{ players[1].name }}</dt>
-          <dd> {{ players[1].score }}</dd>
-        </dl>
-        <button
-          type="button"
-          @click="() => handleClick(false)"
-        >
-          Click
-        </button>
+        <Player :player="players[0]" @update-player="handleClick(true)" />
+        <hr />
+        <Player :player="players[1]" @update-player="handleClick(false)" />
       </div>
     </div>
   `,
 });
+
+// Removed for sake of brevity
+// Alternative 1
+// Vue.set(this.flags, 'hasStarted', true);
+// Alternative 2
+// this.flags = {
+//   ...this.flags,
+//   hasStarted: true,
+// };
