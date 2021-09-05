@@ -2,17 +2,17 @@ import { defineComponent } from 'vue';
 export default defineComponent({
     data() {
         return {
-            modalIsVisible: false,
+            overlayIsVisible: false,
             overlayNumberOfClicks: 0,
         };
     },
     methods: {
         closeOverlay() {
-            this.modalIsVisible = false;
+            this.overlayIsVisible = false;
             this.overlayNumberOfClicks = 0;
         },
         openOverlay() {
-            this.modalIsVisible = true;
+            this.overlayIsVisible = true;
         },
         clickInsideOverlay() {
             this.overlayNumberOfClicks += 1;
@@ -21,18 +21,18 @@ export default defineComponent({
     template: `
     <div>
       <h1>
-        Clicks inside overlay: {{ overlayNumberOfClicks }}
+        Clicks inside modal: {{ overlayNumberOfClicks }}
       </h1>
-      <button @click="modalIsVisible ? closeOverlay() : openOverlay()">
-        {{ modalIsVisible ? 'Hide' : 'Show' }} overlay
+      <button @click="overlayIsVisible ? closeOverlay() : openOverlay()">
+        {{ overlayIsVisible ? 'Hide' : 'Show' }} modal
       </button>
-      <teleport to="body" v-if="modalIsVisible">
+      <teleport to="body" v-if="overlayIsVisible">
         <div class="overlay">
           <button @click="clickInsideOverlay">
             Click
           </button>
           <button @click="closeOverlay">
-            Close overlay
+            Close modal
           </button>
         </div>
       </teleport>

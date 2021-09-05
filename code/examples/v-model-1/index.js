@@ -26,8 +26,9 @@ export const app = createApp({
         v-model:firstName="firstName"
         v-model:lastName="lastName"
       />
-      Parent data:
-      <hr />
+      <p>
+        Parent data:
+      </p>
       <div>
         <code>
           First Name: {{ !!firstName ? firstName : '-' }}

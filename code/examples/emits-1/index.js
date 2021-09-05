@@ -26,8 +26,9 @@ export const app = createApp({
         @update-text="updateText"
         @toggle-button="toggleButton"
       />
-      Parent data:
-      <hr />
+      <p>
+        Parent data:
+      </p>
       <code>
         Field: {{ !!text ? text : '-' }}
       </code>

@@ -34,16 +34,13 @@ export default defineComponent({
     },
   },
   template: `
-    <fieldset>
-      <legend>Form</legend>
-      <div>
-        <label for="first-name">First name: </label>
-        <input v-model="firstNameValue" id="first-name" />
-      </div>
-      <div>
-        <label for="last-name">Last name: </label>
-        <input v-model="lastNameValue" id="last-name" />
-      </div>
-    </fieldset>
+    <div>
+      <label for="first-name">First name: </label>
+      <input v-model="firstNameValue" id="first-name" />
+    </div>
+    <div>
+      <label for="last-name">Last name: </label>
+      <input v-model="lastNameValue" id="last-name" />
+    </div>
   `,
 });

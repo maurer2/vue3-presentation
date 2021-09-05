@@ -35,13 +35,12 @@ export default defineComponent({
     },
   },
   template: `
-    <fieldset>
-      <legend>Form</legend>
+    <div>
       <label for="field">Field: </label>
       <input v-model="textValue" id="field" />
       <button type="button" @click="handleButtonClick">
         Click
       </button>
-    </fieldset>
+    </div>
   `,
 });
