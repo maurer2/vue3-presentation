@@ -41,3 +41,13 @@ body {
   display: grid;
   place-items: center;
 }
+
+table, th, td {
+  border: 1px solid var(--magic-mint);
+}
+
+table {
+  width: 100%;
+  table-layout: fixed;
+  text-align: left;
+}
