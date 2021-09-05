@@ -50,7 +50,7 @@ Screenshot
 <!-- block-end -->
 
 ---
-### Two-way data-binding
+### Multiple v-models for two-way data-binding
 <!-- block-start: grid -->
 <!-- block-start: column -->
 <!-- classes: grid.sm -->
@@ -59,9 +59,29 @@ Screenshot
 - Two-way data-binding mostly used for form-binding and child to parent communication on custom components
 - Syntactic sugar for passing a value prop and emitting an input event by default, but prop name and event can be customized
 - Vue3 allows multiple v-models per component
+
 <!-- block-end -->
 <!-- block-start: column -->
 Screenshot
+
+<!-- block-end -->
+<!-- block-end -->
+
+---
+### Event-validation
+<!-- block-start: grid -->
+<!-- block-start: column -->
+<!-- classes: grid.sm -->
+- Events emitted from a component can now be validated
+- Can also be used to see at a glance which events are emitted
+- can be array (for documentation only) or object (for validator functionality)
+- eslint shows warning when events that are used are missing in the emits property
+
+<!-- block-end -->
+<!-- block-start: column -->
+Screenshot
+
+[Example Composition API](http://127.0.0.1:8085/examples/emits-1/)
 
 <!-- block-end -->
 <!-- block-end -->
