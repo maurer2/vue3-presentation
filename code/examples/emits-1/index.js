@@ -26,8 +26,10 @@ export const app = createApp({
         @update-text="updateText"
         @toggle-button="toggleButton"
       />
+      Parent data:
+      <hr />
       <code>
-        Input: {{ !!text ? text : '-' }}
+        Field: {{ !!text ? text : '-' }}
       </code>
     </form>
   `,
