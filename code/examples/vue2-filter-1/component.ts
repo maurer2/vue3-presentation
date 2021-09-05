@@ -7,8 +7,7 @@ export default Vue.extend({
         return '';
       }
 
-      const valueClean: string = value.trim();
-      const words: string[] = valueClean.split(/\s+/);
+      const words: string[] = value.trim().split(/\s+/);
       const wordsReversed: string[] = words
         .map((word) => word.split('').reverse().join(''));
 
@@ -22,21 +21,19 @@ export default Vue.extend({
 
       const wordsCapitalized: string[] = wordsReversedCapitalized
         .map((word) => word.split('').reverse().join(''));
-      const transformedValue: string = wordsCapitalized.join(' ');
+      const wordsCapitalizedString: string = wordsCapitalized.join(' ');
 
-      return transformedValue;
+      return wordsCapitalizedString;
     },
   },
   data() {
     return {
-      text: 'Lorem ipsum dolor sit amet',
+      text: '',
     };
   },
   template: `
     <div class="root">
-      <p>
-        Unfiltered: {{ text }}
-      </p>
+      <input v-model="text" placeholder="Please enter a text" />
       <p>
         Filtered: {{ text | capitalizeLastLetters }}
       </p>
