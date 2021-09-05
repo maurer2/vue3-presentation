@@ -35,7 +35,6 @@
 .swiper-slide[class*="width-"] img {
   display: block;
   margin-bottom: 10px;
-  background: red;
 }
 
 .swiper-slide.width-25 img {
