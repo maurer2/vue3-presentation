@@ -32,3 +32,12 @@ body {
   background: var(--english-violet);
   color: var(--magic-mint);
 }
+
+.overlay {
+  width: 300px;
+  height: 300px;
+  margin: auto;
+  background: var(--magic-mint);
+  display: grid;
+  place-items: center;
+}
