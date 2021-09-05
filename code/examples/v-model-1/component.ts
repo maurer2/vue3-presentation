@@ -11,10 +11,6 @@ export default defineComponent({
       default: '',
     },
   },
-  emits: [
-    'update:firstName',
-    'update:lastName',
-  ],
   computed: {
     firstNameValue: {
       set(newValue: string): void {
@@ -44,3 +40,11 @@ export default defineComponent({
     </div>
   `,
 });
+
+/*
+Removed for sake of brevity
+emits: [
+  'update:firstName',
+  'update:lastName',
+],
+*/

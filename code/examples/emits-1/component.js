@@ -32,12 +32,10 @@ export default defineComponent({
         },
     },
     template: `
-    <div>
-      <label for="field">Field: </label>
-      <input v-model="textValue" id="field" />
-      <button type="button" @click="handleButtonClick">
-        Click
-      </button>
-    </div>
+    <label for="field">Field: </label>
+    <input v-model="textValue" id="field" />
+    <button type="button" @click="handleButtonClick">
+      Click
+    </button>
   `,
 });
