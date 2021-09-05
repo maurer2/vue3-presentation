@@ -51,3 +51,19 @@ table {
   table-layout: fixed;
   text-align: left;
 }
+
+dl {
+  display: grid;
+  grid-auto-columns: 1fr;
+  grid-template-columns: max-content max-content;
+
+}
+
+dt {
+  grid-column: 1;
+}
+
+dd{
+  grid-column: 2;
+  white-space: nowrap;
+}
