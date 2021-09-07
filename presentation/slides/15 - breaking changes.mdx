@@ -43,11 +43,18 @@
 <!-- block-start: grid -->
 <!-- block-start: column -->
 <!-- classes: grid.sm -->
-- Text
+- .sync-attribute was used to to allow two way data-binding for props between child and parent components
+- has been dropped in Vue3
+- can be entirely replaced with the new and extended v-model
+- name of v-model props have changed and differs between components with single v-model and multiple v-models
+- Option to customize the name of the v-model prop and emitted event via the model object has been removed again
+- in components that use a single v-model, the name of the v-model prop changes from `value` to `modelValue` and the emitted event changes from `update` to `update:modelValue`
+[//] Prop name in parent can be v-model or v-model:modelValue // todo: verify the latter
+- in components that use multiple v-models, the name of the v-models attributes on the parent follows the following pattern `v-model:nameOfVariable`. The emitted event follows the same pattern, e.g. `update:nameOfVariable`. V-model prop names are just `nameOfVariable`
 
 <!-- block-end -->
 <!-- block-start: column -->
-Screenshot
+Screenshot v-model-2
 
 <!-- block-end -->
 <!-- block-end -->
