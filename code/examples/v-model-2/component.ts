@@ -27,7 +27,6 @@ export default defineComponent({
     },
   },
   template: `
-    <h1>Radio</h1>
     <div>
       <input type="radio" v-model="modelValueComputed" value="on" id="on-button" />
       <label for="on-button"> On</label>

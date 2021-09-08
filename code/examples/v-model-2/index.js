@@ -12,7 +12,10 @@ export const app = createApp({
     };
   },
   template: `
+    <h1>Radio</h1>
     <form>
+      <TestComponent v-model:modelValue="radioState" />
+      <hr />
       <TestComponent v-model="radioState" />
       <p>
         Parent data:
