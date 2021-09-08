@@ -20,13 +20,15 @@ export default defineComponent({
         return this.firstName;
       },
     },
-    lastNameValue: {
-      set(newValue: string): void {
-        this.$emit('update:lastName', newValue);
-      },
-      get(): string {
-        return this.lastName;
-      },
+  },
+  methods: {
+    handleInput(event: InputEvent): void {
+      if (event.target === null) {
+        throw new Error('input field missing');
+      }
+      const targetElement = event.target as HTMLInputElement;
+
+      this.$emit('update:lastName', targetElement.value);
     },
   },
   template: `
@@ -36,7 +38,7 @@ export default defineComponent({
     </div>
     <div>
       <label for="last-name">Last name: </label>
-      <input v-model="lastNameValue" id="last-name" />
+      <input :value="lastName" @input="handleInput" id="last-name" />
     </div>
   `,
 });
