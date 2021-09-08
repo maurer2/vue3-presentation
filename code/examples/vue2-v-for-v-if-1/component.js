@@ -4,8 +4,8 @@ export default Vue.extend({
         return {
             people: [
                 {
-                    name: 'Cersei Centenarian',
-                    age: 100,
+                    name: 'Loona Loonie',
+                    age: 1,
                 },
                 {
                     name: 'Ted Tenner',
@@ -16,11 +16,14 @@ export default Vue.extend({
                     age: 5,
                 },
             ],
+            ageLimit: 5,
         };
     },
     computed: {
         filteredPeople() {
-            return this.people.filter((person) => person.age > 5);
+            const people = this.people;
+            const ageLimit = this.ageLimit;
+            return people.filter((person) => person.age >= ageLimit);
         },
     },
     template: `

@@ -1,12 +1,17 @@
 import Vue from 'vue2';
 
+type Person = {
+  name: string,
+  age: number,
+}
+
 export default Vue.extend({
   data() {
     return {
       people: [
         {
-          name: 'Cersei Centenarian',
-          age: 100,
+          name: 'Loona Loonie',
+          age: 1,
         },
         {
           name: 'Ted Tenner',
@@ -17,11 +22,15 @@ export default Vue.extend({
           age: 5,
         },
       ],
+      ageLimit: 5,
     };
   },
   computed: {
     filteredPeople() {
-      return this.people.filter((person) => person.age > 5);
+      const people = this.people as Person[];
+      const ageLimit = this.ageLimit as number;
+
+      return people.filter((person) => person.age >= ageLimit);
     },
   },
   template: `
