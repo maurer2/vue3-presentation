@@ -5,16 +5,17 @@
 ### Composition API
 <!-- block-start: grid -->
 <!-- block-start: column -->
-<!-- classes: grid.sm -->
-- Improves Typescript handling
+<!-- classes: grid -->
+- Improves compatibility with Typescript
 - Improves readability/code organization
-- Avoids dealing with JS dynamic execution context
-- Simpler way to split code and share functionality
-- Allows usage of arrow functions for computed, methods etc.
-- More FP and modern React-like
-- Improves working with JSX and TSX
-- Provides data-encapsulation/information hiding
+- Provides data encapsulation
+- Simplifies scope handling
+<!-- - Simpler way to split code and share functionality -->
+<!-- - Improves working with JSX and TSX -->
+<!-- - Allows usage of arrow functions for computed, methods etc. -->
 - Further fragmentation of the Vue ecosystem
+- Changes approach to unit testing
+- Still actively changing (script setup)
 
 <!-- block-end -->
 <!-- block-start: column -->
@@ -36,7 +37,7 @@
 ### Multiple v-models for two-way data-binding
 <!-- block-start: grid -->
 <!-- block-start: column -->
-<!-- classes: grid.sm -->
+<!-- classes: grid -->
 - v-model and sync-modifier are used for two way data-binding in Vue2
 - sync-modifier has been removed in Vue3
 - Two-way data-binding mostly used for form-binding and child to parent communication on custom components
@@ -55,7 +56,7 @@
 ### Event-validation
 <!-- block-start: grid -->
 <!-- block-start: column -->
-<!-- classes: grid.sm -->
+<!-- classes: grid -->
 - Emitted events can now be validated
 - Can also be used to see at a glance which events are emitted
 - can be array (for documentation only) or object (for validator functionality)
@@ -73,7 +74,7 @@
 ### Multiple root nodes in templates
 <!-- block-start: grid -->
 <!-- block-start: column -->
-<!-- classes: grid.sm -->
+<!-- classes: grid -->
 - Templates can now have multiple root elements
 - No more wrapper elements
 - Key placement slightly more complex, when using template-tags
