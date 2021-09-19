@@ -19,7 +19,7 @@
 
 <!-- block-end -->
 <!-- block-start: column -->
-![Screenshot X](../../code/examples/composition-api-1/screenshot.png)
+![Example Composition API](../../code/examples/composition-api-1/screenshot.png)
 [Example Composition API](http://127.0.0.1:8085/examples/composition-api-1/)
 
 <!-- block-end -->
@@ -34,38 +34,38 @@
 - Makes destructuring slightly more complicated
 
 ---
-### Multiple v-models for two-way data-binding
+### Multiple v-model attributes for two-way data-binding
 <!-- block-start: grid -->
 <!-- block-start: column -->
 <!-- classes: grid -->
+- Two-way data-binding mostly used for form-elements within components and child to parent communication on custom components
 - v-model and sync-modifier are used for two way data-binding in Vue2
 - sync-modifier has been removed in Vue3
-- Two-way data-binding mostly used for form-binding and child to parent communication on custom components
-- Syntactic sugar for passing a value prop and emitting an input event by default, but prop name and event can be customized
 - Vue3 allows multiple v-models per component
 
 <!-- block-end -->
 <!-- block-start: column -->
-![Example v-model](../../code/examples/v-model-1/screenshot.png)
-[Example v-model](http://127.0.0.1:8085/examples/v-model-1)
+![Example v-model in custom components](../../code/examples/v-model-1/screenshot.png)
+[Example v-model in custom components](http://127.0.0.1:8085/examples/v-model-1)
 
 <!-- block-end -->
 <!-- block-end -->
 
 ---
-### Event-validation
+### Event-validation and Event-documentation
 <!-- block-start: grid -->
 <!-- block-start: column -->
 <!-- classes: grid -->
-- Emitted events can now be validated
-- Can also be used to see at a glance which events are emitted
-- can be array (for documentation only) or object (for validator functionality)
+- Events can now be validated via emit property
+- See at a glance which events are emitted by a component and check the validity of emitted event parameters
+- Can be simple string array for documentation only
+- Can be an object of callback functions or validator functionality
 - Eslint shows warning when events that are used are missing in the emits property
 
 <!-- block-end -->
 <!-- block-start: column -->
-![Example v-model](../../code/examples/emits-1/screenshot.png)
-[Example Composition API](http://127.0.0.1:8085/examples/emits-1/)
+![Example event validation](../../code/examples/emits-1/screenshot.png)
+[Example event validation](http://127.0.0.1:8085/examples/emits-1/)
 
 <!-- block-end -->
 <!-- block-end -->
@@ -76,14 +76,14 @@
 <!-- block-start: column -->
 <!-- classes: grid -->
 - Templates can now have multiple root elements
-- No more wrapper elements
-- Key placement slightly more complex, when using template-tags
+- No more wrapper elements necessary
 - Class-attribute placement needs to be handled manually
+- Key placement slightly more complex when using template-tags with v-for
 
 <!-- block-end -->
 <!-- block-start: column -->
-![Example v-model](../../code/examples/multi-root-1/screenshot.png)
-[Example v-model](http://127.0.0.1:8085/examples/multi-root-1)
+![Example multi-root elements](../../code/examples/multi-root-1/screenshot.png)
+[Example multi-root elements](http://127.0.0.1:8085/examples/multi-root-1)
 
 <!-- block-end -->
 <!-- block-end -->
