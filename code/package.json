@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "serve": "npm run build:examples; http-server -i true -c-1 -o /examples -p 8085",
+    "serve": "http-server -i true -c-1 -o /examples -p 8085",
     "build:examples": "tsc",
     "watch:examples": "tsc --watch",
     "lint": "eslint examples/**/*.ts --fix",
