@@ -5,64 +5,82 @@
 ### Filter removal
 <!-- block-start: grid -->
 <!-- block-start: column -->
-<!-- classes: grid.sm -->
+<!-- classes: grid -->
 - Filter syntax was original taken from AngularJS
-- Often used for output formatting like currencies, dates, text manipulation etc.
+- Often used for output formatting of currencies, dates and strings
 - Pure functions with no access to component state
 - Can be replaced with regular functions or computed properties
 
 <!-- block-end -->
 <!-- block-start: column -->
-![Example v-model](../../code/examples/vue2-filter-1/screenshot.png)
-[Example Composition API](http://127.0.0.1:8085/examples/vue2-filter-1/)
+![Example filters Vue2](../../code/examples/vue2-filter-1/screenshot.png)
+[Example filters Vue2](http://127.0.0.1:8085/examples/vue2-filter-1/)
 
 <!-- block-end -->
 <!-- block-end -->
 
 ---
-### v-if & v-for precedence
+### v-if & v-for precedence swap
 <!-- block-start: grid -->
 <!-- block-start: column -->
-<!-- classes: grid.sm -->
-- using both directives at the same time on the same element should be avoided and will result in a linter warning
-- Vue2 executes v-for first and creates a temporary object which is then used by v-if to check if the condition is fulfilled. Loop has to be run and condition executed whenever the component rerenders
-- Vue3 executes v-if first and doesn't render anything as there is no age variable in scope, which causes a warning
-- can be refactored into a computed property that pre-filters and caches the elements
-- for conditional rendering (if empty) an additional computed property like hasEntries or wrapping the container with an entries.length check can be used. Alternatively v-if and v-else can be moved into the loop using two template-tags
+<!-- classes: grid -->
+- Using both directives at the same time should be avoided and will result in a linter warning
+- Vue2 executes **v-for** first and creates a temporary object which is then used by **v-if** to check if the condition is fulfilled.
+- Vue3 executes **v-if** first and doesn't render anything as there is no age variable in scope, which causes a warning
+- Can be refactored into a computed property that filters and caches the results
+- For conditional rendering an additional computed property like hasResults can be used
 
 <!-- block-end -->
 <!-- block-start: column -->
-![Example v-model](../../code/examples/vue2-v-for-v-if-1/screenshot.png)
-[Example Composition API](http://127.0.0.1:8085/examples/vue2-v-for-v-if-1/)
+![Example v-if and v-for](../../code/examples/vue2-v-for-v-if-1/screenshot.png)
+[Example v-if and v-for](http://127.0.0.1:8085/examples/vue2-v-for-v-if-1/)
 
 <!-- block-end -->
 <!-- block-end -->
 
 ---
-### v-model naming changes and .sync removal
+### .sync removal and v-model name changes in custom components
 <!-- block-start: grid -->
 <!-- block-start: column -->
-<!-- classes: grid.sm -->
-- .sync-attribute was used to to allow two way data-binding for props between child and parent components
-- has been dropped in Vue3
-- can be entirely replaced with the new and extended v-model
-- name of v-model props have changed and differs between components with single v-model and multiple v-models
-- Option to customize the name of the v-model prop and emitted event via the model object has been removed again
-- in components that use a single v-model, the name of the v-model prop changes from `value` to `modelValue` and the emitted event changes from `update` to `update:modelValue`
-- v-model name in parent component can be v-model or v-model:modelValue
-- in components that use multiple v-models, the name of the v-models attributes on the parent follows the following pattern `v-model:nameOfVariable`. The emitted event follows the same pattern, e.g. `update:nameOfVariable`. V-model prop names are just `nameOfVariable`
+<!-- classes: grid -->
+- .sync-attribute has been dropped in Vue3 and needs to be replaced with v-model
+- Name of v-model props have changed and differ between components with single v-model and multiple v-models
+<!-- - Option to customize the name of the v-model prop and emitted event via the model object has been removed again -->
+- For custom components that use a single v-model attribute, the naming convention is the following:
+- Name of the v-model attribute on the parent component: `v-model` or `v-model:modelValue`
+- Name of the emitted event: `update:modelValue`
+- V-model prop name: `modelValue`
 
 <!-- block-end -->
 <!-- block-start: column -->
-![Example v-model](../../code/examples/v-model-2/screenshot.png)
-[Example Composition API](http://127.0.0.1:8085/examples/v-model-2/)
+![Example single v-model](../../code/examples/v-model-2/screenshot.png)
+[Example single v-model](http://127.0.0.1:8085/examples/v-model-2/)
+
+<!-- block-end -->
+<!-- block-end -->
+
+---
+
+### .sync removal and v-model name changes in custom components
+<!-- block-start: grid -->
+<!-- block-start: column -->
+<!-- classes: grid -->
+- For custom components that use multiple v-model attributes, the naming convention is the following:
+- Name of the v-model attribute on the parent component: `v-model:nameOfVariable`
+- Name of the emitted event: `update:nameOfVariable`
+- V-model prop name: `nameOfVariable` not `modelValue:nameOfVariable`
+
+<!-- block-end -->
+<!-- block-start: column -->
+![Example multiple v-model](../../code/examples/v-model-1/screenshot.png)
+[Example multiple v-model](http://127.0.0.1:8085/examples/v-model-1/)
 
 <!-- block-end -->
 <!-- block-end -->
 
 ---
 ### Other minor breaking changes
-- New naming conventions for event-names
+- Recommended naming conventions for event-names has changed
 - Key placement on multi-root components
-- Browser support
 - Template tag rendering
+- Browser support
