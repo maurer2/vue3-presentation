@@ -2,6 +2,7 @@ import Vue from 'vue2';
 export default Vue.extend({
     data() {
         return {
+            ageLimit: 5,
             people: [
                 {
                     name: 'Loona Loonie',
@@ -16,7 +17,6 @@ export default Vue.extend({
                     age: 5,
                 },
             ],
-            ageLimit: 5,
         };
     },
     computed: {
@@ -28,7 +28,7 @@ export default Vue.extend({
     },
     template: `
     <div class="root">
-      <dl v-for="person in people" v-if="person.age > 5">
+      <dl v-for="person in people" v-if="person.age >= 5">
         <dt>Name: </dt>
         <dd>{{ person.name }}</dd>
         <dt>Age: </dt>
