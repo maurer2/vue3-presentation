@@ -5,12 +5,17 @@
   "license": "MIT",
   "dependencies": {
     "@fusuma/task-pdf": "^2.8.4",
+    "@types/puppeteer": "^5.4.4",
     "fusuma": "^2.8.4",
-    "http-server": "^13.0.1"
+    "http-server": "^13.0.1",
+    "ts-node": "^10.2.1",
+    "typescript": "^4.4.3"
   },
   "scripts": {
     "start": "fusuma start",
     "build": "fusuma build",
-    "serve": "http-server dist -p 8089"
+    "serve": "http-server dist -p 8089",
+    "print": "ts-node ./scripts/print.ts http://localhost:8089",
+    "print2": "npx fusuma pdf -f slides.pdf"
   }
 }
