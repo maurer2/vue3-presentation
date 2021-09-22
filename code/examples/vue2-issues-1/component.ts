@@ -13,6 +13,17 @@ type Data = {
   players: Player[]
 }
 
+// const p: Data['players'] = [
+//   {
+//     name: 'PLAYER1',
+//     score: 0,
+//   },
+//   {
+//     name: 'PLAYER2',
+//     score: 0,
+//   },
+// ];
+
 export default Vue.extend({
   components: {
     Player: () => import('./player.js'),
