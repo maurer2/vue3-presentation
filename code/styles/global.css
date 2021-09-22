@@ -7,6 +7,7 @@
 }
 
 html {
+  height: 100%;
   height: -webkit-fill-available;
   font-size: 16px;
   font-family: -apple-system, BlinkMacSystemFont,
@@ -66,4 +67,8 @@ dt {
 dd{
   grid-column: 2;
   white-space: nowrap;
+}
+
+h1 {
+  margin-top: 0;
 }
