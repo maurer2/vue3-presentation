@@ -15,7 +15,7 @@
 <!-- - Allows usage of arrow functions for computed, methods etc. -->
 - Further fragmentation of the Vue ecosystem
 - Changes approach to unit testing
-- Still actively changing (script setup)
+- Still actively changing (script setup improvements)
 
 <!-- block-end -->
 <!-- block-start: column -->
@@ -29,8 +29,8 @@
 ### Better reactivity
 - Vue3 uses proxy objects for reactivity
 - Objects are now fully reactive by default without any change detection issues
-- Objects can be made partially reactive
-- Requires evergreen browsers (newer than IE11)
+- Objects and Arrays can be made partially reactive
+<!-- - Requires evergreen browsers (newer than IE11) -->
 - Makes destructuring slightly more complicated
 
 ---
@@ -38,7 +38,7 @@
 <!-- block-start: grid -->
 <!-- block-start: column -->
 <!-- classes: grid -->
-- Two-way data-binding mostly used for form-elements within components and child to parent communication on custom components
+- Two-way data-binding is mostly used for form-elements within components and child to parent communication on custom components
 - v-model and sync-modifier are used for two way data-binding in Vue2
 - sync-modifier has been removed in Vue3
 - Vue3 allows multiple v-models per component
@@ -52,14 +52,14 @@
 <!-- block-end -->
 
 ---
-### Event-validation and Event-documentation
+### Event-validation and event-documentation
 <!-- block-start: grid -->
 <!-- block-start: column -->
 <!-- classes: grid -->
-- Events can now be validated via emit property
+- Events can now be validated via the emit property
 - See at a glance which events are emitted by a component and check the validity of emitted event parameters
 - Can be simple string array for documentation only
-- Can be an object of callback functions or validator functionality
+- Can be an object of callback functions for validator functionality
 - Eslint shows warning when events that are used are missing in the emits property
 
 <!-- block-end -->
