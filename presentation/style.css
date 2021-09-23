@@ -69,3 +69,8 @@ ol > li:not(:last-child) {
 h3 + ul {
   margin-top: 2rem;
 }
+
+img + a {
+  display: block;
+  margin-top: 1rem;
+}
