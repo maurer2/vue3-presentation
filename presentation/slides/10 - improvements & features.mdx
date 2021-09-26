@@ -85,3 +85,22 @@
 
 <!-- block-end -->
 <!-- block-end -->
+
+---
+### Teleport
+<!-- block-start: grid -->
+<!-- block-start: column -->
+<!-- classes: grid -->
+- New tag to break out of the current component hierarchy
+- Elements are appended to the body tag by default and act as regular child elements (receive props etc.)
+- Avoids common stacking context issues and containing block issues
+- Mainly useful for overlays, toast messages etc.
+- Multiple teleports to the same target will be appended in the order they are called
+
+<!-- block-end -->
+<!-- block-start: column -->
+![Example teleport feature](../../code/examples/teleport-1/screenshot.png)
+[Example teleport feature](http://127.0.0.1:8085/examples/teleport-1)
+
+<!-- block-end -->
+<!-- block-end -->
